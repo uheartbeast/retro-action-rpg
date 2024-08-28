@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsvc5w0lr5y0f"]
+
+[ext_resource type="Texture2D" uid="uid://b8f0q6x7vo13" path="res://enemies/bat.png" id="1_7c518"]
+
+[node name="World" type="Node2D"]
+
+[node name="Bat" type="Sprite2D" parent="."]
+position = Vector2(91, 36)
+texture = ExtResource("1_7c518")
