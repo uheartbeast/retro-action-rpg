@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bsvc5w0lr5y0f"]
+[gd_scene load_steps=3 format=3 uid="uid://bsvc5w0lr5y0f"]
 
 [ext_resource type="Texture2D" uid="uid://b8f0q6x7vo13" path="res://enemies/bat.png" id="1_7c518"]
+[ext_resource type="PackedScene" uid="uid://qlkp2isw2f12" path="res://hero/hero.tscn" id="2_qo1or"]
 
 [node name="World" type="Node2D"]
 
 [node name="Bat" type="Sprite2D" parent="."]
 position = Vector2(91, 36)
 texture = ExtResource("1_7c518")
+
+[node name="Hero" parent="." instance=ExtResource("2_qo1or")]
+position = Vector2(166, 103)
