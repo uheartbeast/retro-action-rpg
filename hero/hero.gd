@@ -13,6 +13,7 @@ var facing_direction: = Vector2.DOWN :
 		facing_direction = value
 		
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var flip_anchor: Node2D = $FlipAnchor
 
 func _ready() -> void:
 	motion_mode = MOTION_MODE_FLOATING
@@ -20,6 +21,10 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var input_vector = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	facing_direction = input_vector
+	
+	if facing_direction.x != 0.0:
+		flip_anchor.scale.x = facing_direction.x
+	
 	if input_vector != Vector2.ZERO:
 		play_animation("run")
 	else:
