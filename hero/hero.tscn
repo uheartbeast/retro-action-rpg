@@ -3,10 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://ltf20ja3hxft" path="res://hero/fox_hero.png" id="1_fp0kx"]
 [ext_resource type="Script" path="res://hero/hero.gd" id="1_k24sg"]
 
-[sub_resource type="Animation" id="Animation_08cww"]
-resource_name = "idle_down"
-length = 0.1
-step = 0.1
+[sub_resource type="Animation" id="Animation_xplbb"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -20,8 +18,10 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_xplbb"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_08cww"]
+resource_name = "idle_down"
+length = 0.1
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
