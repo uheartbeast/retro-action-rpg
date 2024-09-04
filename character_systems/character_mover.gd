@@ -1,0 +1,11 @@
+class_name CharacterMover
+extends RefCounted
+
+static func accelerate_in_direction(character: CharacterBody2D, direction: Vector2, movement_stats: MovementStats, delta: float) -> void:
+	character.velocity = character.velocity.move_toward(direction * movement_stats.max_speed, movement_stats.acceleration * delta)
+
+static func decelerate(character: CharacterBody2D, movement_stats: MovementStats, delta: float) -> void:
+	character.velocity = character.velocity.move_toward(Vector2.ZERO, movement_stats.friction * delta)
+
+static func move(character: CharacterBody2D) -> void:
+	character.move_and_slide()
