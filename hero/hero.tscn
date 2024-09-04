@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://qlkp2isw2f12"]
+[gd_scene load_steps=12 format=3 uid="uid://qlkp2isw2f12"]
 
 [ext_resource type="Texture2D" uid="uid://ltf20ja3hxft" path="res://hero/fox_hero.png" id="1_fp0kx"]
 [ext_resource type="Script" path="res://hero/hero.gd" id="1_k24sg"]
+[ext_resource type="Resource" uid="uid://c33dxflshfsr3" path="res://hero/basic_hero_movement_stats.tres" id="2_lxb44"]
 
 [sub_resource type="Animation" id="Animation_xplbb"]
 length = 0.001
@@ -133,6 +134,7 @@ _data = {
 
 [node name="Hero" type="CharacterBody2D"]
 script = ExtResource("1_k24sg")
+movement_stats = ExtResource("2_lxb44")
 
 [node name="FlipAnchor" type="Node2D" parent="."]
 

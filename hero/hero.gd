@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 const SIDE_BIAS: = 0.1
 
+@export var movement_stats: MovementStats
+
 var facing_direction: = Vector2.DOWN :
 	set(value):
 		if value == Vector2.ZERO: return
@@ -11,7 +13,7 @@ var facing_direction: = Vector2.DOWN :
 		else:
 			value = Vector2(0, sign(value.y))
 		facing_direction = value
-		
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var flip_anchor: Node2D = $FlipAnchor
 
