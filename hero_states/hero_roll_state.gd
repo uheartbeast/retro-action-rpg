@@ -10,5 +10,5 @@ func enter() -> void:
 
 func physics_process(delta: float) -> void:
 	var hero: = actor as Hero
-	CharacterMover.accelerate_in_direction(hero, hero.facing_direction, hero.movement_stats, delta)
+	CharacterMover.accelerate_in_direction(hero, hero.direction, hero.roll_movement_stats, delta)
 	CharacterMover.move(hero)
