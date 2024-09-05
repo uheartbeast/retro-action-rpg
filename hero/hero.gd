@@ -18,11 +18,14 @@ var facing_direction: = Vector2.DOWN :
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var flip_anchor: Node2D = $FlipAnchor
 
+@onready var move_state: = HeroMoveState.new().set_actor(self)
+@onready var fsm: = FSM.new().set_state(move_state)
+
 func _ready() -> void:
 	motion_mode = MOTION_MODE_FLOATING
 
 func _physics_process(delta: float) -> void:
-	pass
+	fsm.state.physics_process(delta)
 
 func play_animation(animation: String) -> void:
 	var animation_name: = animation + "_" + get_direction_string()
