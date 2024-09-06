@@ -9,3 +9,7 @@ func set_target(value: RemoteTransform2D) -> void:
 		_target.remote_path = ""
 	_target = value
 	_target.remote_path = get_path()
+	reset_smoothing()
+
+func _ready() -> void:
+	Events.request_camera_target.connect(set_target)

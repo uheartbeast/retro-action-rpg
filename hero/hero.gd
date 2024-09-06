@@ -24,6 +24,7 @@ var facing_direction: = Vector2.DOWN :
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var flip_anchor: Node2D = $FlipAnchor
+@onready var remote_transform_2d: RemoteTransform2D = $RemoteTransform2D
 
 @onready var move_state: = HeroMoveState.new().set_actor(self) as HeroMoveState
 @onready var roll_state: = HeroRollState.new().set_actor(self)
@@ -31,6 +32,7 @@ var facing_direction: = Vector2.DOWN :
 @onready var fsm: = FSM.new().set_state(move_state)
 
 func _ready() -> void:
+	Events.request_camera_target.emit.call_deferred(remote_transform_2d)
 	move_state.request_roll.connect(fsm.change_state.bind(roll_state))
 	move_state.request_weapon.connect(fsm.change_state.bind(weapon_state))
 	roll_state.finished.connect(fsm.change_state.bind(move_state))

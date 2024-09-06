@@ -10,8 +10,9 @@
 position = Vector2(91, 36)
 texture = ExtResource("1_7c518")
 
+[node name="CharacterCamera" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+script = ExtResource("3_mno1f")
+
 [node name="Hero" parent="." instance=ExtResource("2_qo1or")]
 position = Vector2(166, 103)
-
-[node name="CharacterCamera" type="Camera2D" parent="."]
-script = ExtResource("3_mno1f")
