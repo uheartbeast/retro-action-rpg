@@ -13,3 +13,10 @@ func set_target(value: RemoteTransform2D) -> void:
 
 func _ready() -> void:
 	Events.request_camera_target.connect(set_target)
+	Events.request_camera_limits.connect(update_limits)
+
+func update_limits(camera_limits: CameraLimits) -> void:
+	limit_left = camera_limits.position.x
+	limit_right = camera_limits.position.x + camera_limits.size.x
+	limit_top = camera_limits.position.y
+	limit_bottom = camera_limits.position.y + camera_limits.size.y
