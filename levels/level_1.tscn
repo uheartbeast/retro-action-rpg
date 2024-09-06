@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://burvhv42pe1q6"]
+
+[ext_resource type="PackedScene" uid="uid://c18muratispac" path="res://levels/level.tscn" id="1_7yyhx"]
+[ext_resource type="Texture2D" uid="uid://b8f0q6x7vo13" path="res://enemies/bat.png" id="2_rns3g"]
+[ext_resource type="Script" path="res://camera/camera_limits.gd" id="3_mlspe"]
+
+[node name="Level1" instance=ExtResource("1_7yyhx")]
+
+[node name="Bat" type="Sprite2D" parent="." index="0"]
+position = Vector2(96, 40)
+texture = ExtResource("2_rns3g")
+
+[node name="CameraLimits" type="Control" parent="." index="1"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -88.0
+offset_right = 320.0
+offset_bottom = 240.0
+script = ExtResource("3_mlspe")

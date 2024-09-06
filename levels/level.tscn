@@ -4,3 +4,4 @@
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_yh1oq")
+metadata/_edit_lock_ = true
