@@ -2,6 +2,8 @@ class_name HeroMoveState
 extends State
 
 signal request_roll()
+signal request_weapon()
+signal request_misc()
 
 func physics_process(delta: float) -> void:
 	var hero: = actor as Hero
@@ -23,3 +25,8 @@ func physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("roll"):
 		request_roll.emit()
+	if Input.is_action_just_pressed("weapon"):
+		request_weapon.emit()
+	if Input.is_action_just_pressed("misc"):
+		request_misc.emit()
+		

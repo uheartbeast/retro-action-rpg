@@ -27,11 +27,14 @@ var facing_direction: = Vector2.DOWN :
 
 @onready var move_state: = HeroMoveState.new().set_actor(self) as HeroMoveState
 @onready var roll_state: = HeroRollState.new().set_actor(self)
+@onready var weapon_state: = HeroWeaponState.new().set_actor(self)
 @onready var fsm: = FSM.new().set_state(move_state)
 
 func _ready() -> void:
 	move_state.request_roll.connect(fsm.change_state.bind(roll_state))
+	move_state.request_weapon.connect(fsm.change_state.bind(weapon_state))
 	roll_state.finished.connect(fsm.change_state.bind(move_state))
+	weapon_state.finished.connect(fsm.change_state.bind(move_state))
 	motion_mode = MOTION_MODE_FLOATING
 
 func _physics_process(delta: float) -> void:
