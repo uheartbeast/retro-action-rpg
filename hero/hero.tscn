@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://qlkp2isw2f12"]
+[gd_scene load_steps=19 format=3 uid="uid://qlkp2isw2f12"]
 
 [ext_resource type="Texture2D" uid="uid://ltf20ja3hxft" path="res://hero/fox_hero.png" id="1_fp0kx"]
 [ext_resource type="Script" path="res://hero/hero.gd" id="1_k24sg"]
@@ -173,6 +173,57 @@ tracks/0/keys = {
 "values": [43, 44, 45, 46, 47]
 }
 
+[sub_resource type="Animation" id="Animation_50073"]
+resource_name = "sword_down"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlipAnchor/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [21, 22, 23, 24]
+}
+
+[sub_resource type="Animation" id="Animation_vpnrn"]
+resource_name = "sword_side"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlipAnchor/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [25, 26, 27, 28]
+}
+
+[sub_resource type="Animation" id="Animation_j5bu1"]
+resource_name = "sword_up"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlipAnchor/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [29, 30, 31, 32]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yoq1m"]
 _data = {
 "RESET": SubResource("Animation_xplbb"),
@@ -184,7 +235,10 @@ _data = {
 "roll_up": SubResource("Animation_hr3ki"),
 "run_down": SubResource("Animation_wl25t"),
 "run_side": SubResource("Animation_sq0c8"),
-"run_up": SubResource("Animation_02rb7")
+"run_up": SubResource("Animation_02rb7"),
+"sword_down": SubResource("Animation_50073"),
+"sword_side": SubResource("Animation_vpnrn"),
+"sword_up": SubResource("Animation_j5bu1")
 }
 
 [node name="Hero" type="CharacterBody2D"]
