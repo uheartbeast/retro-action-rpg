@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsvc5w0lr5y0f"]
+[gd_scene load_steps=6 format=3 uid="uid://bsvc5w0lr5y0f"]
 
 [ext_resource type="Texture2D" uid="uid://b8f0q6x7vo13" path="res://enemies/bat.png" id="1_7c518"]
+[ext_resource type="Script" path="res://world.gd" id="1_bmmwn"]
 [ext_resource type="PackedScene" uid="uid://qlkp2isw2f12" path="res://hero/hero.tscn" id="2_qo1or"]
 [ext_resource type="Script" path="res://camera/character_camera.gd" id="3_mno1f"]
 [ext_resource type="Script" path="res://camera/camera_limits.gd" id="4_x434j"]
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_bmmwn")
 
 [node name="Bat" type="Sprite2D" parent="."]
 position = Vector2(91, 36)
