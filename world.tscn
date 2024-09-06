@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bsvc5w0lr5y0f"]
+[gd_scene load_steps=4 format=3 uid="uid://bsvc5w0lr5y0f"]
 
 [ext_resource type="Texture2D" uid="uid://b8f0q6x7vo13" path="res://enemies/bat.png" id="1_7c518"]
 [ext_resource type="PackedScene" uid="uid://qlkp2isw2f12" path="res://hero/hero.tscn" id="2_qo1or"]
+[ext_resource type="Script" path="res://camera/character_camera.gd" id="3_mno1f"]
 
 [node name="World" type="Node2D"]
 
@@ -11,3 +12,6 @@ texture = ExtResource("1_7c518")
 
 [node name="Hero" parent="." instance=ExtResource("2_qo1or")]
 position = Vector2(166, 103)
+
+[node name="CharacterCamera" type="Camera2D" parent="."]
+script = ExtResource("3_mno1f")
