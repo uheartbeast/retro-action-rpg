@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Events="*res://world_systems/events.gd"
+MainInstances="*res://world_systems/main_instances.gd"
 
 [display]
 
