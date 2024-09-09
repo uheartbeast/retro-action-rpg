@@ -5,3 +5,4 @@ extends Node2D
 
 func _ready() -> void:
 	y_sort_enabled = true
+	RenderingServer.set_default_clear_color(Color("#14182e"))
