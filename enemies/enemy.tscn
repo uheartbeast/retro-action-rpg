@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_uks3a"]
 
 [node name="Enemy" type="CharacterBody2D"]
+collision_layer = 4
 script = ExtResource("1_uks3a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

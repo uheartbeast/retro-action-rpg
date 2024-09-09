@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://csteocmfklci7"]
+[gd_scene load_steps=10 format=3 uid="uid://csteocmfklci7"]
 
 [ext_resource type="PackedScene" uid="uid://b624l7rnhvkej" path="res://enemies/enemy.tscn" id="1_7il16"]
 [ext_resource type="Script" path="res://enemies/bat_enemy.gd" id="2_328rv"]
 [ext_resource type="Texture2D" uid="uid://b8f0q6x7vo13" path="res://enemies/bat.png" id="2_hmj8w"]
+[ext_resource type="Resource" uid="uid://div3f76txbsrn" path="res://enemies/bat_enemy_movement_stats.tres" id="3_fi7oh"]
 
 [sub_resource type="Animation" id="Animation_355qg"]
 resource_name = "move"
@@ -66,6 +67,7 @@ radius = 5.0
 
 [node name="BatEnemy" instance=ExtResource("1_7il16")]
 script = ExtResource("2_328rv")
+movement_stats = ExtResource("3_fi7oh")
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_hmj8w")

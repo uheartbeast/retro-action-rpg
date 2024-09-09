@@ -242,6 +242,7 @@ _data = {
 }
 
 [node name="Hero" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_k24sg")
 movement_stats = ExtResource("2_lxb44")
 roll_movement_stats = ExtResource("3_pwfgj")
