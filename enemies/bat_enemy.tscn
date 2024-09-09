@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://csteocmfklci7"]
+
+[ext_resource type="PackedScene" uid="uid://b624l7rnhvkej" path="res://enemies/enemy.tscn" id="1_7il16"]
+[ext_resource type="Texture2D" uid="uid://b8f0q6x7vo13" path="res://enemies/bat.png" id="2_hmj8w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kyckc"]
+radius = 5.0
+
+[node name="BatEnemy" instance=ExtResource("1_7il16")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_hmj8w")
+offset = Vector2(0, -6)
+hframes = 6
+frame = 1
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_kyckc")
