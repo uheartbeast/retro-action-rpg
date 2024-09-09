@@ -28,6 +28,10 @@ window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+navigation=""
+
 [input]
 
 move_right={

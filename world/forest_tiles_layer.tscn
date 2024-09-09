@@ -2,6 +2,6 @@
 
 [ext_resource type="TileSet" uid="uid://b4uxsdo36kb7s" path="res://world/forest_tileset.tres" id="1_1nexd"]
 
-[node name="ForestTilesLayer" type="TileMapLayer"]
+[node name="ForestTilesLayer" type="TileMapLayer" groups=["navigation"]]
 y_sort_enabled = true
 tile_set = ExtResource("1_1nexd")
