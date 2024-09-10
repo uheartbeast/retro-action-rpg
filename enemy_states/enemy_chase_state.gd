@@ -12,6 +12,9 @@ func physics_process(delta: float) -> void:
 	var hero: = MainInstances.hero as Hero
 	if hero is not Hero: return
 	
+	var map_rid: = navigation_agent.get_navigation_map()
+	if NavigationServer2D.map_get_iteration_id(map_rid) == 0: return
+	
 	navigation_agent.target_position = hero.global_position
 	var next_point: = navigation_agent.get_next_path_position()
 	var direction: = enemy.global_position.direction_to(next_point)
