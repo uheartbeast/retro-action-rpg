@@ -1,7 +1,7 @@
 class_name BatEnemy
 extends Enemy
 
-@onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
+@onready var navigation_agent_2d: NavigationAgent2D = %NavigationAgent2D
 @onready var chase_state: EnemyChaseState = (
 	EnemyChaseState.new()
 	.set_actor(self)
