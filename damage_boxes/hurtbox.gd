@@ -3,4 +3,4 @@ extends Area2D
 
 var is_invincible: = false
 
-signal hurt(hitbox)
+signal hurt(hitbox: Hitbox)
