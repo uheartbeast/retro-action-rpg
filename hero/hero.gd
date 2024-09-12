@@ -1,6 +1,7 @@
 class_name Hero
 extends CharacterBody2D
 
+const CUSTOM_RED: = Color("e64539")
 const SIDE_BIAS: = 0.1
 
 @export var movement_stats: MovementStats
@@ -26,6 +27,7 @@ var facing_direction: = Vector2.DOWN :
 @onready var flip_anchor: Node2D = $FlipAnchor
 @onready var sprite_2d: Sprite2D = $FlipAnchor/Sprite2D
 @onready var remote_transform_2d: RemoteTransform2D = $RemoteTransform2D
+@onready var flasher: Flasher = Flasher.new().set_target(sprite_2d).set_color(CUSTOM_RED)
 @onready var blinker: Blinker = Blinker.new().set_target(sprite_2d)
 @onready var hitbox: Hitbox = $FlipAnchor/Hitbox
 @onready var hurtbox: Hurtbox = $Hurtbox
@@ -54,8 +56,8 @@ func _physics_process(delta: float) -> void:
 	fsm.state.physics_process(delta)
 
 func take_hit(other_hitbox: Hitbox) -> void:
-	print("hit")
 	hurtbox.is_invincible = true
+	await flasher.flash(0.2)
 	await blinker.blink()
 	hurtbox.is_invincible = false
 
