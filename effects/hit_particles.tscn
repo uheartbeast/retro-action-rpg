@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6ef3ert0317s"]
+
+[ext_resource type="Texture2D" uid="uid://ds5gfdbxvay77" path="res://particles/hit_particle.png" id="1_oaemf"]
+[ext_resource type="Script" path="res://particles/particle_burst.gd" id="2_4oh5v"]
+
+[sub_resource type="Curve" id="Curve_68uce"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_a0n63"]
+curve = SubResource("Curve_68uce")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3w1s8"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(-4, 0, 0)
+emission_shape = 1
+emission_sphere_radius = 4.0
+direction = Vector3(-1, 0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 0, 0)
+damping_min = 100.0
+damping_max = 100.0
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_a0n63")
+
+[node name="HitParticles" type="GPUParticles2D"]
+amount = 4
+process_material = SubResource("ParticleProcessMaterial_3w1s8")
+texture = ExtResource("1_oaemf")
+lifetime = 0.25
+explosiveness = 1.0
+script = ExtResource("2_4oh5v")
