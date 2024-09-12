@@ -57,6 +57,7 @@ func _physics_process(delta: float) -> void:
 
 func take_hit(other_hitbox: Hitbox) -> void:
 	hurtbox.is_invincible = true
+	Events.hero_hurt.emit()
 	await flasher.flash(0.2)
 	await blinker.blink()
 	hurtbox.is_invincible = false
