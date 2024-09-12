@@ -25,6 +25,8 @@ var facing_direction: = Vector2.DOWN :
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var flip_anchor: Node2D = $FlipAnchor
 @onready var remote_transform_2d: RemoteTransform2D = $RemoteTransform2D
+@onready var hitbox: Hitbox = $FlipAnchor/Hitbox
+@onready var hurtbox: Hurtbox = $Hurtbox
 
 @onready var move_state: = HeroMoveState.new().set_actor(self) as HeroMoveState
 @onready var roll_state: = HeroRollState.new().set_actor(self)
