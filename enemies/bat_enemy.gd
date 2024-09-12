@@ -13,7 +13,6 @@ extends Enemy
 func _ready() -> void:
 	super()
 	hurtbox.hurt.connect(func(other_hitbox: Hitbox):
-		print("hi")
 		fsm.change_state(knockback_state.set_knockback(other_hitbox.knockback))
 	)
 	knockback_state.finished.connect(fsm.change_state.bind(chase_state))

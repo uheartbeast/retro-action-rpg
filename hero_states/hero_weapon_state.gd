@@ -14,3 +14,7 @@ func physics_process(delta: float) -> void:
 	var hero: = actor as Hero
 	CharacterMover.decelerate(hero, hero.movement_stats, delta)
 	CharacterMover.move(hero)
+
+func exit() -> void:
+	var hero: = actor as Hero
+	hero.hitbox.clear_stored_targets()

@@ -312,6 +312,7 @@ hframes = 48
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("6_qgw05")
+is_storing_targets = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FlipAnchor/Hitbox"]
 
