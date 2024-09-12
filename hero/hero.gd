@@ -24,7 +24,9 @@ var facing_direction: = Vector2.DOWN :
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var flip_anchor: Node2D = $FlipAnchor
+@onready var sprite_2d: Sprite2D = $FlipAnchor/Sprite2D
 @onready var remote_transform_2d: RemoteTransform2D = $RemoteTransform2D
+@onready var blinker: Blinker = Blinker.new().set_target(sprite_2d)
 @onready var hitbox: Hitbox = $FlipAnchor/Hitbox
 @onready var hurtbox: Hurtbox = $Hurtbox
 
@@ -41,6 +43,7 @@ func _exit_tree() -> void:
 
 func _ready() -> void:
 	Events.request_camera_target.emit.call_deferred(remote_transform_2d)
+	hurtbox.hurt.connect(take_hit)
 	move_state.request_roll.connect(fsm.change_state.bind(roll_state))
 	move_state.request_weapon.connect(fsm.change_state.bind(weapon_state))
 	roll_state.finished.connect(fsm.change_state.bind(move_state))
@@ -49,6 +52,12 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	fsm.state.physics_process(delta)
+
+func take_hit(other_hitbox: Hitbox) -> void:
+	print("hit")
+	hurtbox.is_invincible = true
+	await blinker.blink()
+	hurtbox.is_invincible = false
 
 func play_animation(animation: String) -> void:
 	var animation_name: = animation + "_" + get_direction_string()

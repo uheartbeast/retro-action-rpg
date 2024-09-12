@@ -1,14 +1,9 @@
 class_name Flasher
-extends RefCounted
+extends Effector
 
 var FLASH_MATERIAL = load("res://effects/color_flash.tres")
 
-var target: CanvasItem : set = set_target
 var previous_material: Material
-
-func set_target(value: CanvasItem) -> Flasher:
-	target = value
-	return self
 
 func flash(duration: float = 0.2) -> void:
 	assert(target is CanvasItem, "The target on your flasher isn't set.")
