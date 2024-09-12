@@ -10,5 +10,4 @@ func set_state(value: State) -> FSM:
 
 func change_state(new_state: State) -> void:
 	state.exit()
-	state = new_state
-	state.enter()
+	set_state(new_state)

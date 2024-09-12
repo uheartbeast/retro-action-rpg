@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var hurtbox: Hurtbox = $Hurtbox
 @onready var hitbox: Hitbox = $Hitbox
+@onready var flasher: = Flasher.new().set_target(sprite_2d)
 
 func _ready() -> void:
 	motion_mode = MOTION_MODE_FLOATING

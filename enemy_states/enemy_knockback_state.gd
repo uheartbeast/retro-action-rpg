@@ -10,6 +10,7 @@ func set_knockback(value: Vector2) -> EnemyKnockbackState:
 func enter() -> void:
 	var enemy: = actor as Enemy
 	CharacterMover.apply_knockback(enemy, knockback)
+	enemy.flasher.flash()
 
 func physics_process(delta: float) -> void:
 	var enemy: = actor as Enemy
