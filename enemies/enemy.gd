@@ -2,6 +2,11 @@ class_name Enemy
 extends CharacterBody2D
 
 @export var movement_stats: MovementStats
+@export var stats: Stats :
+	set(value):
+		stats = value
+		if stats is not Stats: return
+		stats = stats.duplicate()
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer

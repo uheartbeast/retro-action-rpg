@@ -15,7 +15,9 @@ func _ready() -> void:
 	hurtbox.hurt.connect(func(other_hitbox: Hitbox):
 		fsm.change_state(knockback_state.set_knockback(other_hitbox.knockback))
 		create_hit_particles(other_hitbox, load("res://effects/hit_particles.tscn"))
+		stats.health -= other_hitbox.damage
 	)
+	stats.no_health.connect(queue_free)
 	knockback_state.finished.connect(fsm.change_state.bind(chase_state))
 
 func _physics_process(delta: float) -> void:
