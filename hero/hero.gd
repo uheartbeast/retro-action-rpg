@@ -4,6 +4,8 @@ extends CharacterBody2D
 const CUSTOM_RED: = Color("e64539")
 const SIDE_BIAS: = 0.1
 
+var stats: = ReferenceStash.hero_stats as Stats 
+
 @export var movement_stats: MovementStats
 @export var roll_movement_stats: MovementStats
 
@@ -46,6 +48,7 @@ func _exit_tree() -> void:
 func _ready() -> void:
 	Events.request_camera_target.emit.call_deferred(remote_transform_2d)
 	hurtbox.hurt.connect(take_hit)
+	stats.no_health.connect(queue_free)
 	move_state.request_roll.connect(fsm.change_state.bind(roll_state))
 	move_state.request_weapon.connect(fsm.change_state.bind(weapon_state))
 	roll_state.finished.connect(fsm.change_state.bind(move_state))
@@ -57,6 +60,7 @@ func _physics_process(delta: float) -> void:
 
 func take_hit(other_hitbox: Hitbox) -> void:
 	hurtbox.is_invincible = true
+	stats.health -= 1
 	Events.request_camera_screenshake.emit(4, 0.3)
 	Events.hero_hurt.emit()
 	await flasher.flash(0.2)
