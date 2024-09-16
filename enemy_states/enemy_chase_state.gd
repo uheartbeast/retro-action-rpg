@@ -18,5 +18,10 @@ func physics_process(delta: float) -> void:
 	navigation_agent.target_position = hero.global_position
 	var next_point: = navigation_agent.get_next_path_position()
 	var direction: = enemy.global_position.direction_to(next_point)
+	
+	if direction.x != 0:
+		enemy.animation_player.play("move")
+		enemy.sprite_2d.scale.x = sign(direction.x)
+	
 	CharacterMover.accelerate_in_direction(enemy, direction, enemy.movement_stats, delta)
 	CharacterMover.move(enemy)

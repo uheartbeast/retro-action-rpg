@@ -11,6 +11,7 @@ func set_knockback(value: Vector2) -> EnemyKnockbackState:
 
 func enter() -> void:
 	var enemy: = actor as Enemy
+	enemy.set_enemy_collision(false)
 	CharacterMover.apply_knockback(enemy, knockback)
 	enemy.flasher.flash()
 
@@ -23,6 +24,7 @@ func physics_process(delta: float) -> void:
 
 func exit() -> void:
 	var enemy: = actor as Enemy
+	enemy.set_enemy_collision(true)
 	if enemy.stats.is_health_gone():
 		enemy.queue_free()
 		Utils.instantiate_scene_on_level(EXPLOSION_EFFECT_SCENE, enemy.global_position)

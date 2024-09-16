@@ -6,6 +6,7 @@
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 4
+collision_mask = 5
 script = ExtResource("1_uks3a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
