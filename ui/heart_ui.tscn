@@ -16,3 +16,4 @@ layout_mode = 2
 unique_name_in_owner = true
 texture = ExtResource("2_65vgq")
 hframes = 5
+frame = 4
