@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhfpk0yhwxeea"]
+
+[ext_resource type="Script" path="res://ui/heart_ui.gd" id="1_elbpq"]
+[ext_resource type="Texture2D" uid="uid://wfw5m380sdol" path="res://ui/heart.png" id="2_65vgq"]
+
+[node name="HeartUI" type="CenterContainer"]
+custom_minimum_size = Vector2(10, 8)
+offset_right = 10.0
+offset_bottom = 8.0
+script = ExtResource("1_elbpq")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+unique_name_in_owner = true
+texture = ExtResource("2_65vgq")
+hframes = 5
