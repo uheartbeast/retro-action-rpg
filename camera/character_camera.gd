@@ -1,6 +1,9 @@
 class_name CharacterCamera
 extends Camera2D
 
+const FRAME_HORIZONTAL_MARGIN: = 28
+const FRAME_VERTICAL_MARGIN: = 6
+
 # We don't want anything directly accessing the camera target
 var _target: RemoteTransform2D : set = set_target
 
@@ -25,7 +28,7 @@ func shake(amount: float) -> void:
 	offset = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)) * amount
 
 func update_limits(camera_limits: CameraLimits) -> void:
-	limit_left = camera_limits.position.x
-	limit_right = camera_limits.position.x + camera_limits.size.x
-	limit_top = camera_limits.position.y
-	limit_bottom = camera_limits.position.y + camera_limits.size.y
+	limit_left = camera_limits.position.x - FRAME_HORIZONTAL_MARGIN
+	limit_right = camera_limits.position.x + camera_limits.size.x + FRAME_HORIZONTAL_MARGIN
+	limit_top = camera_limits.position.y - FRAME_VERTICAL_MARGIN
+	limit_bottom = camera_limits.position.y + camera_limits.size.y + FRAME_VERTICAL_MARGIN
