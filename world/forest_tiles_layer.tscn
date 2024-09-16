@@ -5,3 +5,4 @@
 [node name="ForestTilesLayer" type="TileMapLayer" groups=["navigation"]]
 y_sort_enabled = true
 tile_set = ExtResource("1_1nexd")
+y_sort_origin = -8
