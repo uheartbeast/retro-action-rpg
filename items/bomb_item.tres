@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PlaceableItem" load_steps=3 format=3 uid="uid://cvdd7paxe7vxu"]
+
+[ext_resource type="Script" path="res://items/placeable_item.gd" id="1_eixgw"]
+[ext_resource type="Texture2D" uid="uid://bvh54bxqlo4t8" path="res://items/bomb_icon.png" id="1_fqku4"]
+
+[resource]
+script = ExtResource("1_eixgw")
+name = "Bomb"
+plural_name = ""
+icon = ExtResource("1_fqku4")
+description = "Use it to blow things up."
+is_equipment = false

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="RollItem" load_steps=3 format=3 uid="uid://bpdfe4h7wd5a2"]
+
+[ext_resource type="Texture2D" uid="uid://5dx3ckvwslrf" path="res://items/ring_icon.png" id="1_64jyk"]
+[ext_resource type="Script" path="res://items/roll_item.gd" id="1_quy5o"]
+
+[resource]
+script = ExtResource("1_quy5o")
+name = "Roll Ring"
+plural_name = ""
+icon = ExtResource("1_64jyk")
+description = "Use it to avoid enemy attacks."
+is_equipment = true

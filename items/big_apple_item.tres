@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="HealingItem" load_steps=3 format=3 uid="uid://bmiwht544agiq"]
+
+[ext_resource type="Texture2D" uid="uid://bnudmgjr1uqt7" path="res://items/big_apple_icon.png" id="1_kolen"]
+[ext_resource type="Script" path="res://items/healing_item.gd" id="2_jnpml"]
+
+[resource]
+script = ExtResource("2_jnpml")
+heal_amount = 1.0
+name = "Big Apple"
+plural_name = ""
+icon = ExtResource("1_kolen")
+description = "Heals 3 hearts."
+is_equipment = false

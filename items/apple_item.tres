@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="HealingItem" load_steps=3 format=3 uid="uid://cbsqme3i45nq3"]
+
+[ext_resource type="Texture2D" uid="uid://cay6l48227kpk" path="res://items/apple_icon.png" id="1_5nb61"]
+[ext_resource type="Script" path="res://items/healing_item.gd" id="2_f6hc7"]
+
+[resource]
+script = ExtResource("2_f6hc7")
+heal_amount = 1.0
+name = "Apple"
+plural_name = ""
+icon = ExtResource("1_5nb61")
+description = "Heals 1 heart."
+is_equipment = false
