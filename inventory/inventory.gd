@@ -20,3 +20,18 @@ func get_item(index: int) -> Item:
 	if index < 0 or index >= _item_boxes.size(): return null
 	var item_box: = _item_boxes[index]
 	return item_box.item
+
+func _find_item_box_index_with_item(search_item: Item) -> int:
+	var item_box: = _find_item_box_with_item(search_item)
+	return _item_boxes.find(item_box)
+
+func _find_item_box_with_item(search_item: Item) -> ItemBox:
+	var found_item_boxes: = _item_boxes.filter(_item_box_has_item.bind(search_item))
+	if found_item_boxes.is_empty(): return null
+	
+	# We're only concerned with the first box that contains the item we are looking for
+	var first_item_box: ItemBox = found_item_boxes.front()
+	return first_item_box
+
+func _item_box_has_item(item_box: ItemBox, item: Item) -> bool:
+	return (item_box.item == item)
