@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bsvc5w0lr5y0f"]
+[gd_scene load_steps=8 format=3 uid="uid://bsvc5w0lr5y0f"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_bmmwn"]
 [ext_resource type="PackedScene" uid="uid://biejg0lcgkcc3" path="res://ui/ui.tscn" id="2_1usmh"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://camera/character_camera.gd" id="3_mno1f"]
 [ext_resource type="PackedScene" uid="uid://burvhv42pe1q6" path="res://levels/level_1.tscn" id="4_a0by2"]
 [ext_resource type="PackedScene" uid="uid://b5s4xpld57vda" path="res://effects/hero_hurt_flash.tscn" id="5_1kdlc"]
+[ext_resource type="Script" path="res://world_systems/pause_manager.gd" id="7_wjru1"]
 
 [node name="World" type="Node2D" node_paths=PackedStringArray("current_level")]
 script = ExtResource("1_bmmwn")
@@ -24,3 +25,6 @@ position = Vector2(166, 103)
 [node name="Level1" parent="." instance=ExtResource("4_a0by2")]
 
 [node name="HeroHurtFlash" parent="." instance=ExtResource("5_1kdlc")]
+
+[node name="PauseManager" type="Node" parent="."]
+script = ExtResource("7_wjru1")
