@@ -14,6 +14,15 @@ signal selected(inventory_slot_ui, event)
 
 func _ready() -> void:
 	update_item()
+	focus_entered.connect(show_item_description)
+
+func show_item_description() -> void:
+	var title: = ""
+	var description: = ""
+	if item_box.item is Item:
+		title = item_box.item.name
+		description = item_box.item.description
+	Events.request_description.emit(title, description)
 
 func update_item() -> void:
 	var item: = item_box.item
