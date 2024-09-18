@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cinxgj7qd2iah"]
+
+[ext_resource type="Texture2D" uid="uid://1hhyahsdpg5v" path="res://ui/empty_inventory_slot.png" id="1_5bo3c"]
+[ext_resource type="LabelSettings" uid="uid://djw12prjnf8bd" path="res://fonts/paragraph_label_settings.tres" id="2_7e6oc"]
+[ext_resource type="Script" path="res://ui/action_slot_ui.gd" id="2_h118b"]
+
+[node name="ActionSlotUI" type="TextureRect"]
+custom_minimum_size = Vector2(16, 16)
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("1_5bo3c")
+stretch_mode = 3
+script = ExtResource("2_h118b")
+
+[node name="AmountLabel" type="Label" parent="."]
+offset_left = 13.0
+offset_top = 6.0
+offset_right = 18.0
+offset_bottom = 20.0
+text = "2"
+label_settings = ExtResource("2_7e6oc")
