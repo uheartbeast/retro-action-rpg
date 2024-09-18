@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwyd203q4colq"]
+
+[ext_resource type="Texture2D" uid="uid://cgmrfib8eooak" path="res://ui/description_frame.png" id="1_tc7fj"]
+[ext_resource type="LabelSettings" uid="uid://bppl6q5h86o56" path="res://fonts/title_label_settings.tres" id="2_8x2k3"]
+[ext_resource type="FontFile" uid="uid://biqrvfk8u1clx" path="res://fonts/bitmap_middle_font.ttf" id="3_aox41"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kgcpd"]
+texture = ExtResource("1_tc7fj")
+texture_margin_left = 5.0
+texture_margin_top = 6.0
+texture_margin_right = 5.0
+
+[node name="DescriptionUI" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 10
+theme_override_styles/panel = SubResource("StyleBoxTexture_kgcpd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Sword"
+label_settings = ExtResource("2_8x2k3")
+
+[node name="DescriptionLabel" type="RichTextLabel" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/default_color = Color(0.639216, 0.654902, 0.760784, 1)
+theme_override_fonts/normal_font = ExtResource("3_aox41")
+text = "Use it to vanquish your foes."
+fit_content = true

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://biejg0lcgkcc3"]
+[gd_scene load_steps=6 format=3 uid="uid://biejg0lcgkcc3"]
 
 [ext_resource type="Script" path="res://ui/ui.gd" id="1_sr0yi"]
 [ext_resource type="PackedScene" uid="uid://defwcwfjisq44" path="res://ui/hero_inventory_manager.tscn" id="2_ejqu0"]
 [ext_resource type="Texture2D" uid="uid://bdro7ony20hug" path="res://ui/frame.png" id="2_iiwxc"]
+[ext_resource type="PackedScene" uid="uid://cwyd203q4colq" path="res://ui/description_ui.tscn" id="3_2tunm"]
 [ext_resource type="PackedScene" uid="uid://pw41emmb5e0d" path="res://ui/health_ui.tscn" id="3_v4p5g"]
 
 [node name="UI" type="CanvasLayer"]
@@ -36,6 +37,10 @@ theme_override_constants/margin_right = 8
 
 [node name="HeroInventoryManager" parent="Pause/VBoxContainer/MarginContainer" instance=ExtResource("2_ejqu0")]
 unique_name_in_owner = true
+layout_mode = 2
+
+[node name="DescriptionUI" parent="Pause/VBoxContainer" instance=ExtResource("3_2tunm")]
+z_index = 1
 layout_mode = 2
 
 [node name="Frame" type="TextureRect" parent="."]
