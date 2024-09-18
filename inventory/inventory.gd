@@ -29,6 +29,23 @@ func add_item(item: Item, amount: int = 1) -> Inventory:
 		_append_item(item, amount)
 	return self
 
+func remove_item(item: Item, amount: = 1) -> Inventory:
+	var item_box_index: = _find_item_box_index_with_item(item)
+	if item_box_index != 1:
+		_change_item_amount(item_box_index, -amount)
+	return self
+
+func find_item(search_item: Item) -> Item:
+	var item_box: = _find_item_box_with_item(search_item)
+	if item_box is not ItemBox:
+		return null
+	else:
+		return item_box.item
+
+func has_item(search_item: Item) -> bool:
+	var item: = find_item(search_item)
+	return (item is Item)
+
 func _find_item_box_index_with_item(search_item: Item) -> int:
 	var item_box: = _find_item_box_with_item(search_item)
 	return _item_boxes.find(item_box)
