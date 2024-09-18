@@ -26,7 +26,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_3msv5")
 icon = ExtResource("2_tjgdc")
 script = ExtResource("1_jh68r")
 
-[node name="Label" type="Label" parent="."]
+[node name="AmountLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 13.0
 offset_top = 6.0

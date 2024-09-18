@@ -1,8 +1,33 @@
 class_name InventorySlotUI
 extends Button
 
-@onready var label: Label = $Label
+@onready var amount_label: Label = $AmountLabel
+@onready var item_box: = ItemBox.new() :
+	set(value):
+		item_box = value
+		if item_box is not ItemBox: return
+		item_box.item_changed.connect(update_item)
+		item_box.amount_changed.connect(update_label_amount)
+		update_item()
 
-# Called when the node enters the scene tree for the first time.
+signal selected(inventory_slot_ui, event)
+
 func _ready() -> void:
-	pass # Replace with function body.
+	update_item()
+
+func update_item() -> void:
+	var item: = item_box.item
+	if item is Item:
+		icon = item.icon
+	else:
+		icon = load("res://ui/empty_inventory_slot.png")
+	update_label_amount()
+
+func update_label_amount() -> void:
+	if item_box is not ItemBox: return
+	if amount_label is not Label: return
+	if item_box.item is not Item:
+		amount_label.hide()
+	else:
+		amount_label.visible = (not item_box.item.is_equipment)
+		amount_label.text = str(item_box.amount)
