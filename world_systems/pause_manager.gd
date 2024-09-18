@@ -8,6 +8,8 @@ var is_paused: = false :
 	set(value):
 		is_paused = value
 		get_tree().paused = is_paused
+		if is_paused: paused.emit()
+		else: unpaused.emit()
 
 func _ready() -> void:
 	process_mode = PROCESS_MODE_ALWAYS

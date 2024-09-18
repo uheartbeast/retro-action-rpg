@@ -12,8 +12,9 @@
 script = ExtResource("1_bmmwn")
 current_level = NodePath("Level1")
 
-[node name="UI" parent="." instance=ExtResource("2_1usmh")]
+[node name="UI" parent="." node_paths=PackedStringArray("pause_manager") instance=ExtResource("2_1usmh")]
 visible = false
+pause_manager = NodePath("../PauseManager")
 
 [node name="CharacterCamera" type="Camera2D" parent="."]
 position_smoothing_enabled = true
