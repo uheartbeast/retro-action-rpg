@@ -18,5 +18,10 @@ var amount: int = 0 :
 signal item_changed()
 signal amount_changed()
 
+func set_item_and_amount(new_item: Item, new_amount: = 1) -> ItemBox:
+	item = new_item # NOTE: Set item before amount so that amoun
+	amount = new_amount
+	return self
+
 func is_empty() -> bool:
 	return item is not Item and amount <= 0
