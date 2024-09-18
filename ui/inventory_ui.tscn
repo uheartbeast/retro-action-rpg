@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhb22rgu7k5at"]
+
+[ext_resource type="Script" path="res://ui/inventory_ui.gd" id="1_iv2d2"]
+
+[node name="InventoryUI" type="GridContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 8
+script = ExtResource("1_iv2d2")
