@@ -13,6 +13,12 @@ var inventory: Inventory = null :
 		if inventory is not Inventory: return
 		update_inventory_grid.call_deferred()
 
+func _ready() -> void:
+	inventory = ReferenceStash.inventory
+
+func grab_inventory_slot_focus() -> void:
+	get_child(inventory_slot_index).grab_focus()
+
 func update_inventory_grid() -> void:
 	clear_inventory_slots()
 	fill_inventory_slots()

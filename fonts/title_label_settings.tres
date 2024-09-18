@@ -1,0 +1,6 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bppl6q5h86o56"]
+
+[ext_resource type="FontFile" uid="uid://bjd2h5ka8yfih" path="res://fonts/nes_cyrillic.ttf" id="1_xhfnp"]
+
+[resource]
+font = ExtResource("1_xhfnp")

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://defwcwfjisq44"]
+
+[ext_resource type="Script" path="res://ui/hero_inventory_manager.gd" id="1_6w1gb"]
+[ext_resource type="LabelSettings" uid="uid://bppl6q5h86o56" path="res://fonts/title_label_settings.tres" id="2_xvno8"]
+[ext_resource type="Script" path="res://ui/inventory_ui.gd" id="3_x5ax0"]
+
+[node name="HeroInventoryManager" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6w1gb")
+
+[node name="InventoryLabel" type="Label" parent="."]
+layout_mode = 2
+text = "INVENTORY"
+label_settings = ExtResource("2_xvno8")
+
+[node name="InventoryUI" type="GridContainer" parent="."]
+layout_mode = 2
+columns = 8
+script = ExtResource("3_x5ax0")
