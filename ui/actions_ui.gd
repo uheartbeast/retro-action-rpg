@@ -6,4 +6,6 @@ extends VBoxContainer
 @onready var action_slot_ui_3: ActionSlotUI = %ActionSlotUI3
 
 func _ready() -> void:
-	pass # Replace with function body.
+	Events.request_new_action_one.connect(action_slot_ui_1.set_action_item_index)
+	Events.request_new_action_two.connect(action_slot_ui_2.set_action_item_index)
+	Events.request_new_action_three.connect(action_slot_ui_3.set_action_item_index)

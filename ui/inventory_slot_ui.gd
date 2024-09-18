@@ -16,6 +16,12 @@ func _ready() -> void:
 	update_item()
 	focus_entered.connect(show_item_description)
 
+func _gui_input(event: InputEvent) -> void:
+	if (event.is_action_pressed("roll")
+	or event.is_action_pressed("weapon")
+	or event.is_action_pressed("misc")):
+		selected.emit(self, event)
+
 func show_item_description() -> void:
 	var title: = ""
 	var description: = ""
