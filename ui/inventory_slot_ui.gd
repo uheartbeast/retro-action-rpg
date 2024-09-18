@@ -25,18 +25,8 @@ func show_item_description() -> void:
 	Events.request_description.emit(title, description)
 
 func update_item() -> void:
-	var item: = item_box.item
-	if item is Item:
-		icon = item.icon
-	else:
-		icon = load("res://ui/empty_inventory_slot.png")
+	ItemSlotManager.update_slot_icon(item_box, self, "icon")
 	update_label_amount()
 
 func update_label_amount() -> void:
-	if item_box is not ItemBox: return
-	if amount_label is not Label: return
-	if item_box.item is not Item:
-		amount_label.hide()
-	else:
-		amount_label.visible = (not item_box.item.is_equipment)
-		amount_label.text = str(item_box.amount)
+	ItemSlotManager.update_slot_amount(item_box, amount_label)
