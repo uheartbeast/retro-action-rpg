@@ -1,16 +1,18 @@
-[gd_scene load_steps=6 format=4 uid="uid://burvhv42pe1q6"]
+[gd_scene load_steps=7 format=4 uid="uid://burvhv42pe1q6"]
 
 [ext_resource type="PackedScene" uid="uid://c18muratispac" path="res://levels/level.tscn" id="1_7yyhx"]
 [ext_resource type="Script" path="res://camera/camera_limits.gd" id="3_mlspe"]
 [ext_resource type="PackedScene" uid="uid://csteocmfklci7" path="res://enemies/bat_enemy.tscn" id="4_2rpho"]
 [ext_resource type="PackedScene" uid="uid://bm87xo8bekamj" path="res://world/forest_tiles_layer.tscn" id="4_vhsej"]
+[ext_resource type="PackedScene" uid="uid://bjc2m2qhuru6b" path="res://world/sword_in_the_stone.tscn" id="5_uad8x"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_gjyxd"]
-vertices = PackedVector2Array(358, -6, 358, 118, 294, 118, 250, 90, 250, 54, 314, 10, 250, 154, 294, 182, 10, 182, 214, 154, 250, 118, 186, 122, 186, 86, 214, 118, 150, 122, 10, -6, 150, 86, 198, -6, 198, 10, 314, -6, 214, 54, 214, 90)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(2, 7, 6, 10), PackedInt32Array(3, 2, 10), PackedInt32Array(11, 12, 13, 9), PackedInt32Array(11, 9, 8, 14), PackedInt32Array(14, 8, 15, 16), PackedInt32Array(16, 15, 17, 18, 12), PackedInt32Array(5, 19, 0), PackedInt32Array(18, 5, 4, 20), PackedInt32Array(12, 18, 20, 21), PackedInt32Array(13, 12, 21), PackedInt32Array(13, 21, 3, 10)])
+vertices = PackedVector2Array(184, 120, 307, 98, 334, 98, 216, 120, 248, 88, 307, 73, 216, 88, 248, 152, 296, 184, 8, 184, 216, 152, 360, 120, 296, 120, 216, 56, 184, 88, 200, 8, 360, -8, 334, 73, 248, 120, 312, -8, 312, 8, 248, 56, 8, -8, 200, -8, 152, 88, 152, 120)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(1, 0, 4, 5), PackedInt32Array(6, 4, 0), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(2, 11, 12), PackedInt32Array(13, 6, 0, 14, 15), PackedInt32Array(16, 11, 2, 17), PackedInt32Array(12, 8, 7, 18), PackedInt32Array(19, 16, 17, 20), PackedInt32Array(20, 17, 5, 21, 15), PackedInt32Array(5, 4, 21), PackedInt32Array(15, 21, 13), PackedInt32Array(9, 22, 23, 15, 24), PackedInt32Array(3, 10, 9, 0), PackedInt32Array(15, 14, 24), PackedInt32Array(9, 24, 25), PackedInt32Array(2, 12, 18), PackedInt32Array(9, 25, 0), PackedInt32Array(3, 2, 18)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -32, 384, -32, 384, 136, 320, 144, 313.456, 208, -16, 208)])
 source_geometry_mode = 1
 source_geometry_group_name = &"navigation"
+agent_radius = 8.0
 
 [node name="Level1" instance=ExtResource("1_7yyhx")]
 
@@ -30,15 +32,15 @@ tile_map_data = PackedByteArray("AAAKAAYAAAABAAAAAAAOAAQAAAABAAAAAAAOAAgAAAAAAAA
 [node name="BatEnemy" parent="." index="2" instance=ExtResource("4_2rpho")]
 position = Vector2(40, 24)
 
-[node name="BatEnemy2" parent="." index="3" instance=ExtResource("4_2rpho")]
-position = Vector2(352, 112)
-
-[node name="ColorRect" parent="." index="4"]
+[node name="ColorRect" parent="." index="3"]
 offset_left = -32.0
 offset_top = -32.0
 offset_right = 384.0
 offset_bottom = 208.0
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="5"]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="4"]
 navigation_polygon = SubResource("NavigationPolygon_gjyxd")
 metadata/_edit_lock_ = true
+
+[node name="SwordInTheStone" parent="." index="5" instance=ExtResource("5_uad8x")]
+position = Vector2(320, 88)
