@@ -1,12 +1,15 @@
 class_name HeroWeaponState
-extends State
+extends ItemState
 
 const KNOCKBACK_AMOUNT: = 175
 
 func enter() -> void:
+	assert(item is WeaponItem, "The item in the weapon state is not a weapon item.")
+	item = item as WeaponItem
 	var hero: = actor as Hero
-	hero.hitbox.knockback = hero.facing_direction * KNOCKBACK_AMOUNT
-	hero.play_animation("sword")
+	hero.hitbox.knockback = hero.facing_direction * item.knockback
+	hero.hitbox.damage = item.damage
+	hero.play_animation(item.animation)
 	await hero.animation_player.animation_finished
 	finished.emit()
 

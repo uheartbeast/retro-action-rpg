@@ -35,8 +35,8 @@ var facing_direction: = Vector2.DOWN :
 @onready var hurtbox: Hurtbox = $Hurtbox
 
 @onready var move_state: = HeroMoveState.new().set_actor(self) as HeroMoveState
-@onready var roll_state: = HeroRollState.new().set_actor(self)
-@onready var weapon_state: = HeroWeaponState.new().set_actor(self)
+@onready var roll_state: HeroRollState = HeroRollState.new().set_actor(self).set_item(load("res://items/roll_ring_item.tres"))
+@onready var weapon_state: HeroWeaponState = HeroWeaponState.new().set_actor(self).set_item(load("res://items/sword_item.tres"))
 @onready var fsm: = FSM.new().set_state(move_state)
 
 func _enter_tree() -> void:
