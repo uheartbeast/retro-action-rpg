@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://qlkp2isw2f12"]
+[gd_scene load_steps=23 format=3 uid="uid://qlkp2isw2f12"]
 
 [ext_resource type="Texture2D" uid="uid://ltf20ja3hxft" path="res://hero/fox_hero.png" id="1_fp0kx"]
 [ext_resource type="Script" path="res://hero/hero.gd" id="1_k24sg"]
@@ -295,6 +295,9 @@ _data = {
 radius = 4.0
 height = 10.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dg2di"]
+size = Vector2(6, 5)
+
 [node name="Hero" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_k24sg")
@@ -336,3 +339,13 @@ script = ExtResource("5_yy3pp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(0, -5)
 shape = SubResource("CapsuleShape2D_t0voa")
+
+[node name="InteractionDetector" type="Area2D" parent="."]
+position = Vector2(0, -3.5)
+collision_layer = 0
+collision_mask = 32
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionDetector"]
+position = Vector2(3.5, 0)
+shape = SubResource("RectangleShape2D_dg2di")

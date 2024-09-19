@@ -25,6 +25,8 @@ var facing_direction: = Vector2.DOWN :
 		else:
 			value = Vector2(0, sign(value.y))
 		facing_direction = value
+		if interaction_detector is Area2D:
+			interaction_detector.rotation = facing_direction.angle()
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var flip_anchor: Node2D = $FlipAnchor
@@ -34,6 +36,7 @@ var facing_direction: = Vector2.DOWN :
 @onready var blinker: Blinker = Blinker.new().set_target(sprite_2d)
 @onready var hitbox: Hitbox = $FlipAnchor/Hitbox
 @onready var hurtbox: Hurtbox = $Hurtbox
+@onready var interaction_detector: Area2D = $InteractionDetector
 
 @onready var move_state: = HeroMoveState.new().set_actor(self) as HeroMoveState
 @onready var roll_state: HeroRollState = HeroRollState.new().set_actor(self).set_item(load("res://items/roll_ring_item.tres"))
@@ -56,6 +59,7 @@ func _exit_tree() -> void:
 	MainInstances.hero = null
 
 func _ready() -> void:
+	facing_direction = Vector2.DOWN
 	Events.request_camera_target.emit.call_deferred(remote_transform_2d)
 	hurtbox.hurt.connect(take_hit)
 	stats.no_health.connect(queue_free)
