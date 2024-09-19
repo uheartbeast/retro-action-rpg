@@ -4,7 +4,8 @@ extends CharacterBody2D
 const CUSTOM_RED: = Color("e64539")
 const SIDE_BIAS: = 0.1
 
-var stats: = ReferenceStash.hero_stats as Stats 
+var stats: = ReferenceStash.hero_stats as Stats
+var inventory: = ReferenceStash.inventory as Inventory
 
 @export var movement_stats: MovementStats
 @export var roll_movement_stats: MovementStats
@@ -61,6 +62,14 @@ func _ready() -> void:
 	connect_action(move_state.request_roll, roll_state)
 	connect_action(move_state.request_weapon, weapon_state)
 	motion_mode = MOTION_MODE_FLOATING
+	Events.request_new_action_one.connect(func(item_index: int):
+		var state: ItemState
+		var item: = inventory.get_item(item_index)
+		if item is Item:
+			state = item_state_lookup[item.get_script()]
+			state.item = item
+		connect_action(move_state.request_roll, state)
+	)
 
 func _physics_process(delta: float) -> void:
 	fsm.state.physics_process(delta)
