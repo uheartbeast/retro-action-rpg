@@ -62,17 +62,21 @@ func _ready() -> void:
 	connect_action(move_state.request_roll, roll_state)
 	connect_action(move_state.request_weapon, weapon_state)
 	motion_mode = MOTION_MODE_FLOATING
-	Events.request_new_action_one.connect(func(item_index: int):
+	Events.request_new_action_one.connect(make_new_action_callable(move_state.request_roll))
+	Events.request_new_action_two.connect(make_new_action_callable(move_state.request_weapon))
+	Events.request_new_action_three.connect(make_new_action_callable(move_state.request_misc))
+
+func _physics_process(delta: float) -> void:
+	fsm.state.physics_process(delta)
+
+func make_new_action_callable(state_signal: Signal) -> Callable:
+	return func(item_index: int):
 		var state: ItemState
 		var item: = inventory.get_item(item_index)
 		if item is Item:
 			state = item_state_lookup[item.get_script()]
 			state.item = item
-		connect_action(move_state.request_roll, state)
-	)
-
-func _physics_process(delta: float) -> void:
-	fsm.state.physics_process(delta)
+		connect_action(state_signal, state)
 
 func connect_action(action_signal: Signal, state: State) -> void:
 	if action_signal.is_connected(fsm.change_state):
