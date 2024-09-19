@@ -68,7 +68,6 @@ func _ready() -> void:
 	Events.request_new_action_two.connect(make_new_action_callable(move_state.request_weapon))
 	Events.request_new_action_three.connect(make_new_action_callable(move_state.request_misc))
 	set_action_from_item(load("res://items/roll_ring_item.tres"), Events.request_new_action_one)
-	set_action_from_item(load("res://items/sword_item.tres"), Events.request_new_action_two)
 
 func _physics_process(delta: float) -> void:
 	fsm.state.physics_process(delta)

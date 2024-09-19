@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://qlkp2isw2f12"]
+[gd_scene load_steps=24 format=3 uid="uid://qlkp2isw2f12"]
 
 [ext_resource type="Texture2D" uid="uid://ltf20ja3hxft" path="res://hero/fox_hero.png" id="1_fp0kx"]
 [ext_resource type="Script" path="res://hero/hero.gd" id="1_k24sg"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://b8rcwlo72naue" path="res://hero/roll_hero_movement_stats.tres" id="3_pwfgj"]
 [ext_resource type="Script" path="res://damage_boxes/hurtbox.gd" id="5_yy3pp"]
 [ext_resource type="Script" path="res://damage_boxes/hitbox.gd" id="6_qgw05"]
+[ext_resource type="Script" path="res://hero/interaction_detector.gd" id="7_263ev"]
 
 [sub_resource type="Animation" id="Animation_xplbb"]
 length = 0.001
@@ -344,6 +345,7 @@ shape = SubResource("CapsuleShape2D_t0voa")
 position = Vector2(0, -3.5)
 collision_layer = 0
 collision_mask = 32
+script = ExtResource("7_263ev")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionDetector"]

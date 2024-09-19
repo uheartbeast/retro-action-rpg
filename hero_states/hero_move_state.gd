@@ -23,6 +23,11 @@ func physics_process(delta: float) -> void:
 		CharacterMover.decelerate(hero, hero.movement_stats, delta)
 	CharacterMover.move(hero)
 	
+	if Input.is_action_just_pressed("roll") or Input.is_action_just_pressed("weapon"):
+		if hero.interaction_detector.can_interact() and input_vector == Vector2.ZERO:
+			hero.interaction_detector.trigger_interaction()
+			return
+	
 	if Input.is_action_just_pressed("roll"):
 		request_roll.emit()
 	if Input.is_action_just_pressed("weapon"):
