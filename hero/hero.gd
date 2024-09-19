@@ -59,15 +59,19 @@ func _ready() -> void:
 	Events.request_camera_target.emit.call_deferred(remote_transform_2d)
 	hurtbox.hurt.connect(take_hit)
 	stats.no_health.connect(queue_free)
-	connect_action(move_state.request_roll, roll_state)
-	connect_action(move_state.request_weapon, weapon_state)
 	motion_mode = MOTION_MODE_FLOATING
 	Events.request_new_action_one.connect(make_new_action_callable(move_state.request_roll))
 	Events.request_new_action_two.connect(make_new_action_callable(move_state.request_weapon))
 	Events.request_new_action_three.connect(make_new_action_callable(move_state.request_misc))
+	set_action_from_item(load("res://items/roll_ring_item.tres"), Events.request_new_action_one)
+	set_action_from_item(load("res://items/sword_item.tres"), Events.request_new_action_two)
 
 func _physics_process(delta: float) -> void:
 	fsm.state.physics_process(delta)
+
+func set_action_from_item(item: Item, action_signal: Signal) -> void:
+	var item_index = inventory.get_item_index(item)
+	action_signal.emit(item_index)
 
 func make_new_action_callable(state_signal: Signal) -> Callable:
 	return func(item_index: int):

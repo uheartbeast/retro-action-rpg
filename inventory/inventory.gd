@@ -21,6 +21,9 @@ func get_item(index: int) -> Item:
 	var item_box: = _item_boxes[index]
 	return item_box.item
 
+func get_item_index(item: Item) -> int:
+	return _find_item_box_index_with_item(item)
+
 func add_item(item: Item, amount: int = 1) -> Inventory:
 	var item_box_index: = _find_item_box_index_with_item(item)
 	if item_box_index != -1:
