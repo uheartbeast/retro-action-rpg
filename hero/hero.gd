@@ -49,14 +49,21 @@ func _ready() -> void:
 	Events.request_camera_target.emit.call_deferred(remote_transform_2d)
 	hurtbox.hurt.connect(take_hit)
 	stats.no_health.connect(queue_free)
-	move_state.request_roll.connect(fsm.change_state.bind(roll_state))
-	move_state.request_weapon.connect(fsm.change_state.bind(weapon_state))
-	roll_state.finished.connect(fsm.change_state.bind(move_state))
-	weapon_state.finished.connect(fsm.change_state.bind(move_state))
+	connect_action(move_state.request_roll, roll_state)
+	connect_action(move_state.request_weapon, weapon_state)
 	motion_mode = MOTION_MODE_FLOATING
 
 func _physics_process(delta: float) -> void:
 	fsm.state.physics_process(delta)
+
+func connect_action(action_signal: Signal, state: State) -> void:
+	if action_signal.is_connected(fsm.change_state):
+		action_signal.disconnect(fsm.change_state)
+	if state is not State: return
+	action_signal.connect(fsm.change_state.bind(state))
+	if not state.finished.is_connected(fsm.change_state):
+		state.finished.connect(fsm.change_state.bind(move_state))
+	state.set_actor(self)
 
 func take_hit(other_hitbox: Hitbox) -> void:
 	hurtbox.is_invincible = true
