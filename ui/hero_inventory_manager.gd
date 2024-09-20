@@ -13,8 +13,8 @@ func grab_inventory_ui_focus() -> void:
 func _on_inventory_slot_selected(inventory_ui: InventoryUI, inventory_slot_ui: InventorySlotUI, event: InputEvent) -> void:
 	var slot_index: int = inventory_slot_ui.get_index()
 	if event.is_action("roll"):
-		Events.request_new_action_one.emit(slot_index)
+		Events.request_new_action.emit(0, slot_index)
 	if event.is_action("weapon"):
-		Events.request_new_action_two.emit(slot_index)
+		Events.request_new_action.emit(1, slot_index)
 	if event.is_action("misc"):
-		Events.request_new_action_three.emit(slot_index)
+		Events.request_new_action.emit(2, slot_index)
