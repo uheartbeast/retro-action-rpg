@@ -16,6 +16,7 @@ func _ready() -> void:
 func _set_action_item_index(action_index: int, new_item_index: int) -> void:
 	_action_item_indexes[action_index] = new_item_index
 	item_index_changed.emit(action_index)
+	Events.action_changed.emit(action_index, new_item_index)
 
 func _swap_action_item_indexes(previous_action_index: int, new_action_index: int) -> void:
 	var temp_item_index: int = _action_item_indexes[previous_action_index]

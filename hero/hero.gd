@@ -64,26 +64,27 @@ func _ready() -> void:
 	hurtbox.hurt.connect(take_hit)
 	stats.no_health.connect(queue_free)
 	motion_mode = MOTION_MODE_FLOATING
-	#Events.request_new_action_one.connect(make_new_action_callable(move_state.request_roll))
-	#Events.request_new_action_two.connect(make_new_action_callable(move_state.request_weapon))
-	#Events.request_new_action_three.connect(make_new_action_callable(move_state.request_misc))
-	#set_action_from_item(load("res://items/roll_ring_item.tres"), Events.request_new_action_one)
+	Events.action_changed.connect(func(action_index: int, item_index: int):
+		var state: ItemState
+		var item: = inventory.get_item(item_index)
+		var state_signal: Signal
+		if item is Item:
+			state = item_state_lookup[item.get_script()]
+			state.item = item
+		match action_index:
+			0: state_signal = move_state.request_roll
+			1: state_signal = move_state.request_weapon
+			2: state_signal = move_state.request_misc
+		connect_action(state_signal, state)
+	)
+	set_action_from_item(load("res://items/roll_ring_item.tres"), 0)
 
 func _physics_process(delta: float) -> void:
 	fsm.state.physics_process(delta)
 
-func set_action_from_item(item: Item, action_signal: Signal) -> void:
+func set_action_from_item(item: Item, action_index: int) -> void:
 	var item_index = inventory.get_item_index(item)
-	action_signal.emit(item_index)
-
-func make_new_action_callable(state_signal: Signal) -> Callable:
-	return func(item_index: int):
-		var state: ItemState
-		var item: = inventory.get_item(item_index)
-		if item is Item:
-			state = item_state_lookup[item.get_script()]
-			state.item = item
-		connect_action(state_signal, state)
+	Events.request_new_action.emit(action_index, item_index)
 
 func connect_action(action_signal: Signal, state: State) -> void:
 	if action_signal.is_connected(fsm.change_state):
