@@ -48,10 +48,11 @@ position = Vector2(256, 120)
 position = Vector2(200, 48)
 
 [node name="Door" type="Area2D" parent="." index="7"]
-position = Vector2(8, 128)
+position = Vector2(-8, 128)
 script = ExtResource("5_2pqmh")
 connection = ExtResource("6_6w7cd")
 next_level_path = "res://levels/level_1.tscn"
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door" index="0"]
 shape = SubResource("RectangleShape2D_787cc")

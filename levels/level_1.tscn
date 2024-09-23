@@ -51,11 +51,12 @@ metadata/_edit_lock_ = true
 position = Vector2(320, 88)
 
 [node name="Door" type="Area2D" parent="." index="6"]
-position = Vector2(376, 0)
+position = Vector2(392, 0)
 script = ExtResource("6_2prqv")
 exit_direction = 2
 connection = ExtResource("7_o2cav")
 next_level_path = "res://levels/level_2.tscn"
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door" index="0"]
 shape = SubResource("RectangleShape2D_4sbmk")

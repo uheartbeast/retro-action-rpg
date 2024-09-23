@@ -25,3 +25,4 @@ func change_levels(entered_door: Door) -> void:
 		if door.connection != entered_door.connection: continue
 		var offset = entered_door.get_offset(hero)
 		hero.global_position = door.get_exit_point() - offset
+		Events.request_camera_target.emit(hero.remote_transform_2d)
