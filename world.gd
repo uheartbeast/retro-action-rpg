@@ -8,6 +8,7 @@ extends Node2D
 func _ready() -> void:
 	y_sort_enabled = true
 	RenderingServer.set_default_clear_color(Color("#14182e"))
+	Events.door_entered.connect(change_levels, CONNECT_DEFERRED)
 
 func set_level(level_scene_path: String) -> void:
 	current_level.queue_free()
