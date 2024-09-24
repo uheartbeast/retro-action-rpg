@@ -118,3 +118,17 @@ func get_direction_string() -> String:
 	else:
 		direction_string = "side"
 	return direction_string
+
+func serialize() -> Dictionary:
+	var data: = {}
+	data.global_position = var_to_str(global_position)
+	data.direction = var_to_str(direction)
+	data.facing_direction = var_to_str(facing_direction)
+	return data
+
+func update_from_serialized_data(data: Dictionary) -> void:
+	global_position = str_to_var(data.global_position)
+	direction = str_to_var(data.direction)
+	facing_direction = str_to_var(data.facing_direction)
+	play_animation("idle")
+	Events.request_camera_target.emit(remote_transform_2d)
