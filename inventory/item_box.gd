@@ -25,3 +25,18 @@ func set_item_and_amount(new_item: Item, new_amount: = 1) -> ItemBox:
 
 func is_empty() -> bool:
 	return item is not Item and amount <= 0
+
+func serialize() -> Dictionary:
+	var data: = {}
+	if item is Item:
+		data.item_path = item.resource_path
+		data.amount = amount
+	return data
+
+func deserialize(data: Dictionary) -> ItemBox:
+	var item_box: = ItemBox.new()
+	if data.has("item_path"):
+		var item: = load(data.item_path)
+		item_box.item = item
+		item_box.amount = data.amount
+	return item_box

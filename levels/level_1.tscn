@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=4 uid="uid://burvhv42pe1q6"]
+[gd_scene load_steps=9 format=4 uid="uid://burvhv42pe1q6"]
 
 [ext_resource type="PackedScene" uid="uid://c18muratispac" path="res://levels/level.tscn" id="1_7yyhx"]
 [ext_resource type="Script" path="res://camera/camera_limits.gd" id="3_mlspe"]
-[ext_resource type="PackedScene" uid="uid://csteocmfklci7" path="res://enemies/bat_enemy.tscn" id="4_2rpho"]
 [ext_resource type="PackedScene" uid="uid://bm87xo8bekamj" path="res://world/forest_tiles_layer.tscn" id="4_vhsej"]
 [ext_resource type="PackedScene" uid="uid://bjc2m2qhuru6b" path="res://world/sword_in_the_stone.tscn" id="5_uad8x"]
 [ext_resource type="Script" path="res://world/door.gd" id="6_2prqv"]
@@ -34,23 +33,20 @@ metadata/_edit_lock_ = true
 [node name="ForestTilesLayer" parent="." index="1" instance=ExtResource("4_vhsej")]
 tile_map_data = PackedByteArray("AAAKAAYAAAABAAAAAAAOAAQAAAABAAAAAAAOAAgAAAAAAAAAAAD/////AAAAAAEAAAD//wAAAAACAAEAAAD//wEAAAAFAAEAAAD//wIAAAADAAEAAAD//wMAAAADAAEAAAD//wQAAAAFAAEAAAD//wUAAAAEAAEAAAD//wYAAAAEAAEAAAD//wcAAAABAAEAAAD//wgAAAACAAEAAAD//wkAAAABAAAAAAD//woAAAAEAAEAAAD//wsAAAADAAEAAAD//wwAAAAGAAEAAAD+/wUAAAAGAAEAAAD+/wYAAAABAAAAAAD+/wcAAAABAAEAAAD+/wgAAAAEAAEAAAATAAgAAAAEAAEAAAATAAkAAAADAAEAAAATAAoAAAAAAAEAAAATAAsAAAAAAAAAAAATAAwAAAADAAEAAAAUAAgAAAACAAEAAAAUAAkAAAADAAEAAAAUAAoAAAAGAAEAAAAUAAsAAAAAAAEAAAAUAAwAAAAGAAEAAAAVAAgAAAAGAAEAAAAVAAkAAAABAAAAAAAWAAgAAAAFAAEAAAAXAAgAAAAGAAEAAAAXAAEAAAAAAAEAAAAXAAIAAAABAAEAAAAXAAMAAAAEAAEAAAAXAAQAAAAAAAEAAAAXAAUAAAAEAAEAAAAXAAYAAAAFAAEAAAAXAAcAAAAAAAEAAAAUAP7/AAAAAAEAAAAVAP7/AAAAAAEAAAAWAP7/AAAEAAEAAAAXAP7/AAAFAAEAAAAEAAkAAAACAAAAAAAMAAEAAAACAAAAAAARAAgAAAACAAAAAAAWAAkAAAACAAAAAAAVAAoAAAACAAAAAAAFAAUAAAADAAAAAAAJAP//AAADAAAAAAAEAP7/AAAFAAEAAAAPAAwAAAABAAEAAAAPAAkAAAAEAAAAAAAVAAEAAAAEAAAAAAASAAAAAAAEAAAAAAAQAP//AAACAAEAAAAGAAoAAAAGAAAAAAACAAUAAAAGAAAAAAASAAIAAAAGAAAAAAALAAoAAAAFAAAAAAAJAAsAAAAFAAAAAAAGAAAAAAAFAAAAAAAOAAYAAAAFAAAAAAAAAP7/AAADAAEAAAABAP7/AAAFAAEAAAACAP7/AAAAAAEAAAADAP7/AAAEAAEAAAAFAP7/AAACAAEAAAAGAP7/AAAFAAEAAAAHAP7/AAABAAEAAAAIAP7/AAADAAEAAAAJAP7/AAAFAAEAAAAKAP7/AAABAAEAAAALAP7/AAAAAAEAAAAMAP7/AAAEAAEAAAARAP7/AAAGAAEAAAASAP7/AAAFAAEAAAATAP7/AAACAAEAAAANAP//AAAAAAEAAAAOAP//AAABAAEAAAAPAP//AAABAAEAAAARAP//AAABAAEAAAASAP//AAAFAAEAAAAAAAwAAAACAAEAAAABAAwAAAAEAAEAAAACAAwAAAABAAEAAAADAAwAAAADAAEAAAAEAAwAAAACAAEAAAAFAAwAAAAEAAEAAAAGAAwAAAACAAEAAAAHAAwAAAABAAEAAAAIAAwAAAADAAEAAAAJAAwAAAACAAEAAAAKAAwAAAAAAAEAAAALAAwAAAADAAEAAAAMAAwAAAADAAEAAAANAAwAAAAAAAEAAAAOAAwAAAAFAAEAAAAQAAwAAAACAAEAAAARAAwAAAAEAAEAAAASAAwAAAAAAAEAAAAVAAsAAAAGAAEAAAANAP7/AAAGAAEAAAD///7/AAAGAAEAAAD+/wkAAAAGAAEAAAD+/woAAAAGAAEAAAA=")
 
-[node name="BatEnemy" parent="." index="2" instance=ExtResource("4_2rpho")]
-position = Vector2(40, 24)
-
-[node name="ColorRect" parent="." index="3"]
+[node name="ColorRect" parent="." index="2"]
 offset_left = -32.0
 offset_top = -32.0
 offset_right = 384.0
 offset_bottom = 208.0
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="4"]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="3"]
 navigation_polygon = SubResource("NavigationPolygon_gjyxd")
 metadata/_edit_lock_ = true
 
-[node name="SwordInTheStone" parent="." index="5" instance=ExtResource("5_uad8x")]
+[node name="SwordInTheStone" parent="." index="4" instance=ExtResource("5_uad8x")]
 position = Vector2(320, 88)
 
-[node name="Door" type="Area2D" parent="." index="6"]
+[node name="Door" type="Area2D" parent="." index="5"]
 position = Vector2(392, 0)
 script = ExtResource("6_2prqv")
 exit_direction = 2
