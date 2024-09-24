@@ -21,6 +21,7 @@ Utils="*res://world_systems/utils.gd"
 Events="*res://world_systems/events.gd"
 ReferenceStash="*res://world_systems/reference_stash.gd"
 MainInstances="*res://world_systems/main_instances.gd"
+SaveManager="*res://world_systems/save_manager.gd"
 
 [display]
 
