@@ -21,3 +21,15 @@ signal no_health()
 
 func is_health_gone() -> bool:
 	return (health <= 0)
+
+func serialize() -> Dictionary:
+	var data: = {}
+	data.health = health
+	data.max_health = max_health
+	return data
+
+func deserialize(data: Dictionary) -> Stats:
+	# NOTE: We must set max health first.
+	max_health = data.max_health
+	health = data.health
+	return self

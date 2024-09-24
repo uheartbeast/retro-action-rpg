@@ -34,9 +34,8 @@ func serialize() -> Dictionary:
 	return data
 
 func deserialize(data: Dictionary) -> ItemBox:
-	var item_box: = ItemBox.new()
 	if data.has("item_path"):
-		var item: = load(data.item_path)
-		item_box.item = item
-		item_box.amount = data.amount
-	return item_box
+		var loaded_item: = load(data.item_path)
+		item = loaded_item
+		amount = data.amount
+	return self
