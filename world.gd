@@ -10,6 +10,10 @@ func _ready() -> void:
 	RenderingServer.set_default_clear_color(Color("#14182e"))
 	Events.door_entered.connect(change_levels, CONNECT_DEFERRED)
 
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("left_mouse"):
+		SaveManager.save_game()
+
 func set_level(level_scene_path: String) -> void:
 	current_level.queue_free()
 	var new_level: = load(level_scene_path).instantiate() as Level

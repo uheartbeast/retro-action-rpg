@@ -9,6 +9,12 @@ signal item_index_changed(action_index)
 @onready var action_slot_ui_2: ActionSlotUI = %ActionSlotUI2
 @onready var action_slot_ui_3: ActionSlotUI = %ActionSlotUI3
 
+func _enter_tree() -> void:
+	MainInstances.actions_ui = self
+
+func _exit_tree() -> void:
+	MainInstances.actions_ui = null
+
 func _ready() -> void:
 	Events.request_new_action.connect(set_action)
 	item_index_changed.connect(update_action_slot_ui_item_index)
@@ -39,7 +45,7 @@ func serialize() -> Dictionary:
 	var data: = {}
 	data.action_item_indexes = []
 	for item_index in _action_item_indexes:
-		data.action_item_index.append(item_index)
+		data.action_item_indexes.append(item_index)
 	return data
 
 func update_from_serialized_data(data: Dictionary) -> void:
