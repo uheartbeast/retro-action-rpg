@@ -13,6 +13,8 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("left_mouse"):
 		SaveManager.save_game()
+	if Input.is_action_just_pressed("right_mouse"):
+		SaveManager.load_game()
 
 func set_level(level_scene_path: String) -> void:
 	current_level.queue_free()

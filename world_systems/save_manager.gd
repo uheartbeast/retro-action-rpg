@@ -3,7 +3,7 @@ extends Node
 const TEST_PATH: = "res://arpg_save.txt"
 const PRODUCTION_PATH: = "user://arpg_save.save"
 
-var save_path: = TEST_PATH
+var save_path: = PRODUCTION_PATH
 var save_data: = {}
 
 func save_game() -> void:
@@ -29,4 +29,27 @@ func save_game() -> void:
 	save_file.close()
 
 func load_game() -> void:
-	print("load game")
+	var save_file = FileAccess.open(save_path, FileAccess.READ)
+	if save_file is FileAccess:
+		save_data = JSON.parse_string(save_file.get_line())
+	else:
+		print("NO SAVE FILE!!!")
+	
+	ReferenceStash.inventory = Inventory.new().deserialize(save_data.inventory)
+	ReferenceStash.hero_stats = Stats.new().deserialize(save_data.hero_stats)
+	
+	var tree = get_tree() as SceneTree
+	var world = load("res://world.tscn").instantiate() as World
+	tree.current_scene.queue_free()
+	await tree.root.child_exiting_tree
+	
+	tree.root.add_child.call_deferred(world)
+	await world.ready
+	tree.current_scene = world
+	
+	world.set_level(save_data.level_path)
+	var hero = MainInstances.hero as Hero
+	hero.update_from_serialized_data(save_data.hero)
+	
+	var actions_ui = MainInstances.actions_ui as ActionsUI
+	actions_ui.update_from_serialized_data(save_data.actions_ui)
