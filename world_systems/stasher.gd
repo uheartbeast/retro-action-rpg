@@ -19,3 +19,15 @@ func get_id() -> String:
 		+ " in " + world.current_level.scene_file_path
 	)
 	return id
+
+func stash_property(property: String, value) -> void:
+	var id: = get_id()
+	if not SaveManager.save_data.has(id):
+		SaveManager.save_data[id] = {}
+	SaveManager.save_data[id][property] = value
+
+func retrieve_property(property: String):
+	var id: = get_id()
+	if not SaveManager.save_data.has(id): return null
+	if not SaveManager.save_data[id].has(property): return null
+	return SaveManager.save_data[id][property]
