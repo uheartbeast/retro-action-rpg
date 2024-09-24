@@ -76,3 +76,20 @@ func _append_item(new_item: Item, amount: = 1) -> void:
 func _change_item_amount(index: int, change_amount: int) -> void:
 	var item_box: = _item_boxes[index]
 	_set_item_box_item(index, item_box.item, item_box.amount + change_amount)
+
+func serialize() -> Dictionary:
+	var data: = {}
+	data.item_boxes = []
+	for item_box: ItemBox in _item_boxes:
+		var item_box_data: = item_box.serialize()
+		data.item_boxes.append(item_box_data)
+	return data
+
+func deserialize(data: Dictionary) -> Inventory:
+	_item_boxes.clear()
+	for item_box_data in data.item_boxes:
+		var item_box: ItemBox
+		if item_box_data is Dictionary:
+			item_box = ItemBox.new().deserialize(item_box_data)
+		_item_boxes.append(item_box)
+	return self

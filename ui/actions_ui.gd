@@ -34,3 +34,15 @@ func update_action_slot_ui_item_index(action_index: int) -> void:
 	var item_index: int = _action_item_indexes[action_index]
 	var action_slot_ui: = get_child(action_index) as ActionSlotUI
 	action_slot_ui.action_item_index = item_index
+
+func serialize() -> Dictionary:
+	var data: = {}
+	data.action_item_indexes = []
+	for item_index in _action_item_indexes:
+		data.action_item_index.append(item_index)
+	return data
+
+func update_from_serialized_data(data: Dictionary) -> void:
+	for i in data.action_item_indexes.size():
+		var item_index = _action_item_indexes[i]
+		_set_action_item_index(i, item_index)
