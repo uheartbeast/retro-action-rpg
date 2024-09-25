@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://dj6cjw6r764af"]
+
+[ext_resource type="StyleBox" uid="uid://cn123311u2wlv" path="res://ui/textbox_style_box.tres" id="1_lfv3i"]
+[ext_resource type="FontFile" uid="uid://biqrvfk8u1clx" path="res://fonts/bitmap_middle_font.ttf" id="2_3ylb0"]
+[ext_resource type="Script" path="res://ui/dialogbox.gd" id="2_u0dn3"]
+
+[node name="Dialogbox" type="PanelContainer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = ExtResource("1_lfv3i")
+script = ExtResource("2_u0dn3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/line_separation = -2
+theme_override_fonts/normal_font = ExtResource("2_3ylb0")
+text = "sldkjf
+sdfs"
+fit_content = true
