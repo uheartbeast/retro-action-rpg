@@ -21,7 +21,7 @@ func _ready() -> void:
 		stats.health -= other_hitbox.damage
 	)
 	knockback_state.finished.connect(fsm.change_state.bind(chase_state))
-	tree_exiting.connect(func():
+	stats.no_health.connect(func():
 		stasher.stash_property("freed", true)
 	)
 
