@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://igyb5cyd7jwe"]
+
+[ext_resource type="Script" path="res://world/bomb.gd" id="1_ch01x"]
+[ext_resource type="Texture2D" uid="uid://bvh54bxqlo4t8" path="res://items/bomb_icon.png" id="1_m2qv3"]
+
+[node name="Bomb" type="Node2D"]
+script = ExtResource("1_ch01x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_m2qv3")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

@@ -7,4 +7,5 @@ var inventory: Inventory = (
 	.add_item(load("res://items/apple_item.tres"), 5)
 	.add_item(load("res://items/apple_item.tres"), 5)
 	.add_item(load("res://items/roll_ring_item.tres"), 3)
+	.add_item(load("res://items/bomb_item.tres"), 9)
 )
