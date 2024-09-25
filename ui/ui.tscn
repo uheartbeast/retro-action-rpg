@@ -42,6 +42,7 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="DescriptionUI" parent="Pause/VBoxContainer" instance=ExtResource("3_2tunm")]
+visible = false
 z_index = 1
 layout_mode = 2
 
@@ -64,8 +65,20 @@ offset_top = 8.0
 offset_right = 28.0
 offset_bottom = 64.0
 
-[node name="Dialogbox" parent="." instance=ExtResource("7_m16gv")]
-visible = false
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 28.0
-offset_top = -36.0
 offset_right = -28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Dialogbox" parent="VBoxContainer" instance=ExtResource("7_m16gv")]
+visible = false
+layout_mode = 2

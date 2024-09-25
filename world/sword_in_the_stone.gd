@@ -18,6 +18,7 @@ func collect_sword() -> void:
 	if sword_index == -1: return
 	stasher.stash_property("collected", true)
 	set_collected()
+	Events.request_show_dialog.emit("You found a " + sword.name + ".")
 
 func set_collected() -> void:
 	sprite_2d.frame = 0

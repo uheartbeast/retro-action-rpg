@@ -1,15 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwyd203q4colq"]
+[gd_scene load_steps=5 format=3 uid="uid://cwyd203q4colq"]
 
-[ext_resource type="Texture2D" uid="uid://cgmrfib8eooak" path="res://ui/description_frame.png" id="1_tc7fj"]
+[ext_resource type="StyleBox" uid="uid://cn123311u2wlv" path="res://ui/textbox_style_box.tres" id="1_thnpp"]
 [ext_resource type="LabelSettings" uid="uid://bppl6q5h86o56" path="res://fonts/title_label_settings.tres" id="2_8x2k3"]
 [ext_resource type="Script" path="res://ui/description_ui.gd" id="2_j5fki"]
 [ext_resource type="FontFile" uid="uid://biqrvfk8u1clx" path="res://fonts/bitmap_middle_font.ttf" id="3_aox41"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kgcpd"]
-texture = ExtResource("1_tc7fj")
-texture_margin_left = 5.0
-texture_margin_top = 6.0
-texture_margin_right = 5.0
 
 [node name="DescriptionUI" type="PanelContainer"]
 anchors_preset = 15
@@ -18,7 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 10
-theme_override_styles/panel = SubResource("StyleBoxTexture_kgcpd")
+theme_override_styles/panel = ExtResource("1_thnpp")
 script = ExtResource("2_j5fki")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]

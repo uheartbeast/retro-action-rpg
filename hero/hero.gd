@@ -82,6 +82,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	fsm.state.physics_process(delta)
 
+func _unhandled_input(event: InputEvent) -> void:
+	fsm.state.unhandled_input(event)
+
 func set_action_from_item(item: Item, action_index: int) -> void:
 	var item_index = inventory.get_item_index(item)
 	Events.request_new_action.emit(action_index, item_index)

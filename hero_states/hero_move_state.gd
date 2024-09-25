@@ -1,6 +1,8 @@
 class_name HeroMoveState
 extends State
 
+var input_vector: = Vector2.ZERO
+
 signal request_roll()
 signal request_weapon()
 signal request_misc()
@@ -8,7 +10,7 @@ signal request_misc()
 func physics_process(delta: float) -> void:
 	var hero: = actor as Hero
 	
-	var input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	hero.facing_direction = input_vector
 	hero.direction = input_vector
 	
@@ -22,16 +24,18 @@ func physics_process(delta: float) -> void:
 		hero.play_animation("idle")
 		CharacterMover.decelerate(hero, hero.movement_stats, delta)
 	CharacterMover.move(hero)
-	
-	if Input.is_action_just_pressed("roll") or Input.is_action_just_pressed("weapon"):
+
+
+func unhandled_input(event: InputEvent) -> void:
+	var hero: = actor as Hero
+	if event.is_action_pressed("roll") or event.is_action_pressed("weapon"):
 		if hero.interaction_detector.can_interact() and input_vector == Vector2.ZERO:
 			hero.interaction_detector.trigger_interaction()
 			return
 	
-	if Input.is_action_just_pressed("roll"):
+	if event.is_action_pressed("roll"):
 		request_roll.emit()
-	if Input.is_action_just_pressed("weapon"):
+	if event.is_action_pressed("weapon"):
 		request_weapon.emit()
-	if Input.is_action_just_pressed("misc"):
+	if event.is_action_pressed("misc"):
 		request_misc.emit()
-		
