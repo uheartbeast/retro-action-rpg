@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=4 uid="uid://bsv3a5k0jgeal"]
+
+[ext_resource type="PackedScene" uid="uid://c18muratispac" path="res://levels/level.tscn" id="1_wpfvb"]
+[ext_resource type="PackedScene" uid="uid://bm87xo8bekamj" path="res://world/forest_tiles_layer.tscn" id="2_f7njj"]
+[ext_resource type="PackedScene" uid="uid://dgihdtsm4fxst" path="res://world/save_station.tscn" id="3_si2q8"]
+[ext_resource type="Script" path="res://world/door.gd" id="4_obefr"]
+[ext_resource type="Resource" uid="uid://crywp0j3xgx6i" path="res://level_connections/level_2_to_level_3_connection.tres" id="5_b5ecr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sdas2"]
+size = Vector2(32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r1rg6"]
+size = Vector2(32, 16)
+
+[node name="Level3Save" instance=ExtResource("1_wpfvb")]
+
+[node name="ColorRect" parent="." index="0"]
+offset_right = 320.0
+offset_bottom = 192.0
+
+[node name="ForestTilesLayer" parent="." index="1" instance=ExtResource("2_f7njj")]
+tile_map_data = PackedByteArray("AAABAAYAAAABAAAAAAACAAUAAAAFAAEAAAACAAYAAAABAAAAAAADAAUAAAABAAAAAAAFAAYAAAACAAAAAAAGAAUAAAAFAAEAAAAHAAUAAAADAAEAAAAIAAUAAAAAAAEAAAAAAAYAAAAEAAEAAAAAAAcAAAADAAEAAAAAAAgAAAAFAAEAAAAAAAkAAAADAAEAAAAAAAoAAAAAAAEAAAABAAUAAAABAAEAAAABAAcAAAABAAAAAAABAAgAAAACAAAAAAABAAkAAAAEAAAAAAABAAsAAAAFAAEAAAACAAcAAAAEAAAAAAACAAgAAAAEAAAAAAACAAoAAAADAAAAAAACAAsAAAABAAEAAAADAAgAAAADAAAAAAADAAoAAAAEAAAAAAAEAAUAAAACAAAAAAAEAAYAAAABAAAAAAAFAAUAAAABAAAAAAAFAAsAAAADAAEAAAAGAAkAAAACAAAAAAAGAAoAAAABAAAAAAAGAAsAAAADAAEAAAAHAAkAAAABAAEAAAAHAAoAAAADAAEAAAAHAAsAAAAFAAEAAAAIAAgAAAAFAAEAAAAIAAkAAAAFAAEAAAAIAAoAAAAGAAEAAAAJAAUAAAACAAEAAAAJAAYAAAAEAAAAAAAJAAcAAAADAAAAAAAJAAgAAAAAAAEAAAAJAAkAAAAFAAEAAAAKAAUAAAADAAEAAAAKAAcAAAAEAAAAAAAKAAgAAAABAAEAAAAKAAkAAAAGAAEAAAALAAUAAAABAAEAAAALAAcAAAACAAAAAAALAAgAAAACAAEAAAAMAAYAAAACAAEAAAAMAAcAAAABAAEAAAACAAAAAAAAAAEAAAACAAEAAAADAAEAAAACAAIAAAAAAAEAAAACAAMAAAAFAAEAAAACAAQAAAAGAAEAAAAFAAAAAAAGAAEAAAAFAAEAAAAAAAEAAAAFAAIAAAADAAEAAAAFAAMAAAAAAAEAAAAFAAQAAAAEAAEAAAAGAAEAAAAEAAEAAAAGAAIAAAAGAAEAAAABAAAAAAADAAEAAAABAAEAAAAGAAEAAAADAAMAAAAFAAAAAAAEAAAAAAAFAAAAAAAAAAAAAAAFAAAAAAABAAIAAAAGAAAAAAAEAAIAAAAGAAAAAAAGAAQAAAAGAAAAAAAKAAoAAAAGAAAAAAAJAAsAAAAGAAAAAAAMAAgAAAAGAAAAAAAAAAQAAAAGAAAAAAAKAAMAAAAFAAAAAAAIAAIAAAAFAAAAAAA=")
+
+[node name="SaveStation" parent="." index="2" instance=ExtResource("3_si2q8")]
+position = Vector2(176, 112)
+
+[node name="Door" type="Area2D" parent="." index="3"]
+position = Vector2(64, 200)
+script = ExtResource("4_obefr")
+exit_direction = 1
+exit_distance = 12
+connection = ExtResource("5_b5ecr")
+next_level_path = "res://levels/level_2.tscn"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door" index="0"]
+shape = SubResource("RectangleShape2D_sdas2")
+
+[node name="Door2" type="Area2D" parent="." index="4"]
+position = Vector2(64, -8)
+script = ExtResource("4_obefr")
+exit_direction = 3
+exit_distance = 24
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door2" index="0"]
+shape = SubResource("RectangleShape2D_r1rg6")
