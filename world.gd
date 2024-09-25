@@ -11,8 +11,6 @@ func _ready() -> void:
 	Events.door_entered.connect(change_levels, CONNECT_DEFERRED)
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("left_mouse"):
-		SaveManager.save_game()
 	if Input.is_action_just_pressed("right_mouse"):
 		SaveManager.load_game()
 

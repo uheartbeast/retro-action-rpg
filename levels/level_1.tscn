@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://burvhv42pe1q6"]
+[gd_scene load_steps=10 format=4 uid="uid://burvhv42pe1q6"]
 
 [ext_resource type="PackedScene" uid="uid://c18muratispac" path="res://levels/level.tscn" id="1_7yyhx"]
 [ext_resource type="Script" path="res://camera/camera_limits.gd" id="3_mlspe"]
 [ext_resource type="PackedScene" uid="uid://bm87xo8bekamj" path="res://world/forest_tiles_layer.tscn" id="4_vhsej"]
 [ext_resource type="PackedScene" uid="uid://bjc2m2qhuru6b" path="res://world/sword_in_the_stone.tscn" id="5_uad8x"]
 [ext_resource type="Script" path="res://world/door.gd" id="6_2prqv"]
+[ext_resource type="PackedScene" uid="uid://dgihdtsm4fxst" path="res://world/save_station.tscn" id="7_4ypml"]
 [ext_resource type="Resource" uid="uid://dvu4qg3krmc30" path="res://level_connections/level_1_to_level_2_connection.tres" id="7_o2cav"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_gjyxd"]
@@ -56,3 +57,6 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door" index="0"]
 shape = SubResource("RectangleShape2D_4sbmk")
+
+[node name="SaveStation" parent="." index="6" instance=ExtResource("7_4ypml")]
+position = Vector2(136, 48)

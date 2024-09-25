@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgihdtsm4fxst"]
+
+[ext_resource type="Script" path="res://world/save_station.gd" id="1_2ic8k"]
+[ext_resource type="Texture2D" uid="uid://lnaa57a3sjhk" path="res://world/save_station.png" id="1_a2rob"]
+[ext_resource type="Script" path="res://world/interaction.gd" id="3_gicae"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4lmle"]
+size = Vector2(14, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hpbia"]
+size = Vector2(12, 13)
+
+[node name="SaveStation" type="StaticBody2D"]
+script = ExtResource("1_2ic8k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_4lmle")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_a2rob")
+offset = Vector2(0, -6)
+
+[node name="Interaction" type="Area2D" parent="." groups=["navigation"]]
+script = ExtResource("3_gicae")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction"]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_hpbia")
