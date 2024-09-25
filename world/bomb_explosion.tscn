@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://qlm81uagqh1o"]
+
+[ext_resource type="Script" path="res://world/bomb_explosion.gd" id="1_ansmw"]
+[ext_resource type="Script" path="res://damage_boxes/hitbox.gd" id="1_r4c8j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bq31m"]
+radius = 16.0
+
+[node name="BombExplosion" type="Node2D"]
+script = ExtResource("1_ansmw")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 24
+script = ExtResource("1_r4c8j")
+damage = 3.0
+is_storing_targets = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_bq31m")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.1
+one_shot = true
+autostart = true

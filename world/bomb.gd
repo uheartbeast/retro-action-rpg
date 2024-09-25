@@ -17,4 +17,5 @@ func _ready() -> void:
 		await timer.timeout
 		await flasher.flash(0.16)
 	
+	Utils.instantiate_scene_on_level(load("res://world/bomb_explosion.tscn"), global_position)
 	queue_free()

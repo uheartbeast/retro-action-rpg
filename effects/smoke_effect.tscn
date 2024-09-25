@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://bmdo3p54yyfr6"]
+
+[ext_resource type="Texture2D" uid="uid://csb3ywlhr7xyb" path="res://effects/smoke_effect.png" id="1_h4acp"]
+[ext_resource type="Script" path="res://effects/animated_sprite_effect.gd" id="2_k2v7d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdo78"]
+atlas = ExtResource("1_h4acp")
+region = Rect2(0, 0, 40, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f42xk"]
+atlas = ExtResource("1_h4acp")
+region = Rect2(40, 0, 40, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfi6e"]
+atlas = ExtResource("1_h4acp")
+region = Rect2(80, 0, 40, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kebtx"]
+atlas = ExtResource("1_h4acp")
+region = Rect2(120, 0, 40, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1j74"]
+atlas = ExtResource("1_h4acp")
+region = Rect2(160, 0, 40, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1nfbg"]
+atlas = ExtResource("1_h4acp")
+region = Rect2(200, 0, 40, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cmbu"]
+atlas = ExtResource("1_h4acp")
+region = Rect2(240, 0, 40, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tgmn"]
+atlas = ExtResource("1_h4acp")
+region = Rect2(280, 0, 40, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ypae4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdo78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f42xk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfi6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kebtx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1j74")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1nfbg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cmbu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2tgmn")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="SmokeEffect" type="AnimatedSprite2D"]
+z_index = 120
+sprite_frames = SubResource("SpriteFrames_ypae4")
+autoplay = "default"
+offset = Vector2(0, -16)
+script = ExtResource("2_k2v7d")
