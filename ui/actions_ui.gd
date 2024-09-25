@@ -50,5 +50,5 @@ func serialize() -> Dictionary:
 
 func update_from_serialized_data(data: Dictionary) -> void:
 	for i in data.action_item_indexes.size():
-		var item_index = _action_item_indexes[i]
+		var item_index = data.action_item_indexes[i]
 		_set_action_item_index(i, item_index)

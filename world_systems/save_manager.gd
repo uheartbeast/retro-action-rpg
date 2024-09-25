@@ -44,8 +44,10 @@ func load_game() -> void:
 	await tree.root.child_exiting_tree
 	
 	tree.root.add_child.call_deferred(world)
-	await world.ready
+	await tree.root.child_entered_tree
+	
 	tree.current_scene = world
+	await world.ready
 	
 	world.set_level(save_data.level_path)
 	var hero = MainInstances.hero as Hero
