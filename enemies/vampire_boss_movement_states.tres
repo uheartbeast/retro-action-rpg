@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="MovementStats" load_steps=2 format=3 uid="uid://d160p38t6hqrb"]
+
+[ext_resource type="Script" path="res://character_systems/movement_stats.gd" id="1_6ix5s"]
+
+[resource]
+script = ExtResource("1_6ix5s")
+max_speed = 60.0
+acceleration = 1000.0
+friction = 1000.0

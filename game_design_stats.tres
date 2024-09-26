@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="GameDesignStats" load_steps=11 format=3 uid="uid://bw7vbvsgboxci"]
+
+[ext_resource type="Script" path="res://character_systems/movement_stats.gd" id="1_1lc53"]
+[ext_resource type="Script" path="res://character_systems/stats.gd" id="2_iq1ra"]
+[ext_resource type="Resource" uid="uid://c33dxflshfsr3" path="res://hero/basic_hero_movement_stats.tres" id="2_rqpwm"]
+[ext_resource type="Script" path="res://game_design_stats.gd" id="3_76ilm"]
+[ext_resource type="Resource" uid="uid://b8rcwlo72naue" path="res://hero/roll_hero_movement_stats.tres" id="3_ajvm7"]
+[ext_resource type="Resource" uid="uid://div3f76txbsrn" path="res://enemies/bat_enemy_movement_stats.tres" id="4_0o8nh"]
+[ext_resource type="Resource" uid="uid://d160p38t6hqrb" path="res://enemies/vampire_boss_movement_states.tres" id="5_xs0dk"]
+[ext_resource type="Resource" uid="uid://c6mfa1pwrr6yt" path="res://hero/hero_stats.tres" id="7_ad1x6"]
+[ext_resource type="Resource" uid="uid://pwx2fjs55nx2" path="res://enemies/bat_enemy_stats.tres" id="8_pxt52"]
+[ext_resource type="Resource" uid="uid://bp0wwj04mvmn5" path="res://enemies/vampire_boss_stats.tres" id="9_7vqic"]
+
+[resource]
+script = ExtResource("3_76ilm")
+character_stats = Array[ExtResource("2_iq1ra")]([ExtResource("7_ad1x6"), ExtResource("8_pxt52"), ExtResource("9_7vqic")])
+character_movement_stats = Array[ExtResource("1_1lc53")]([ExtResource("2_rqpwm"), ExtResource("3_ajvm7"), ExtResource("4_0o8nh"), ExtResource("5_xs0dk")])

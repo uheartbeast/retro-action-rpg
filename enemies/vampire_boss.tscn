@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://idp4s8vywvcy"]
+[gd_scene load_steps=9 format=3 uid="uid://idp4s8vywvcy"]
 
 [ext_resource type="PackedScene" uid="uid://b624l7rnhvkej" path="res://enemies/enemy.tscn" id="1_h51bj"]
 [ext_resource type="Texture2D" uid="uid://b0oac6opvkudj" path="res://enemies/vampire.png" id="2_kfcei"]
 [ext_resource type="Script" path="res://enemies/vampire_boss.gd" id="2_pc0px"]
+[ext_resource type="Resource" uid="uid://d160p38t6hqrb" path="res://enemies/vampire_boss_movement_states.tres" id="3_s7xmi"]
+[ext_resource type="Resource" uid="uid://bp0wwj04mvmn5" path="res://enemies/vampire_boss_stats.tres" id="4_5abma"]
 
 [sub_resource type="Animation" id="Animation_t4irr"]
 resource_name = "idle"
@@ -92,6 +94,8 @@ _data = {
 
 [node name="VampireBoss" instance=ExtResource("1_h51bj")]
 script = ExtResource("2_pc0px")
+movement_stats = ExtResource("3_s7xmi")
+stats = ExtResource("4_5abma")
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_kfcei")
