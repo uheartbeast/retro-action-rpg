@@ -15,7 +15,7 @@ offset = Vector2(-1, 0)
 [node name="Hitbox" parent="." index="1"]
 position = Vector2(1, 0)
 collision_layer = 0
-collision_mask = 8
+collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
 shape = SubResource("CircleShape2D_of8dn")

@@ -187,7 +187,7 @@ texture = ExtResource("2_kfcei")
 offset = Vector2(0, -12)
 hframes = 8
 
-[node name="Marker2D" type="Marker2D" parent="Sprite2D" index="0"]
+[node name="FireballMarker2D" type="Marker2D" parent="Sprite2D" index="0"]
 position = Vector2(9, -7)
 
 [node name="AnimationPlayer" parent="." index="1"]

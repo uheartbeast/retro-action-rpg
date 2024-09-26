@@ -20,7 +20,7 @@ func _ready() -> void:
 	hitbox.hit_hurtbox.connect(impact.unbind(1))
 	hitbox.body_entered.connect(impact.unbind(1))
 
-func _physcis_process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	translate(direction * speed * delta)
 
 func impact() -> void:
