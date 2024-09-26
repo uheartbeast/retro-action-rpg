@@ -1,0 +1,110 @@
+[gd_scene load_steps=7 format=3 uid="uid://idp4s8vywvcy"]
+
+[ext_resource type="PackedScene" uid="uid://b624l7rnhvkej" path="res://enemies/enemy.tscn" id="1_h51bj"]
+[ext_resource type="Texture2D" uid="uid://b0oac6opvkudj" path="res://enemies/vampire.png" id="2_kfcei"]
+[ext_resource type="Script" path="res://enemies/vampire_boss.gd" id="2_pc0px"]
+
+[sub_resource type="Animation" id="Animation_t4irr"]
+resource_name = "idle"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hurtbox/CollisionPolygon2D:polygon")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array(-8, 2, -8, -16, -6, -18, -10, -22, -6, -26, 6, -26, 10, -22, 6, -18, 8, -16, 8, 2, 7, 3, -7, 3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox/CollisionPolygon2D:polygon")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array(-8, 2, -8, -16, -6, -18, -10, -22, -6, -26, 6, -26, 10, -22, 6, -18, 8, -16, 8, 2, 7, 3, -7, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_ao3fo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hurtbox/CollisionPolygon2D:polygon")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(-8, 2, -8, -16, -6, -18, -10, -22, -6, -26, 6, -26, 10, -22, 6, -18, 8, -16, 8, 2, 7, 3, -7, 3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox/CollisionPolygon2D:polygon")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(-8, 2, -8, -16, -6, -18, -10, -22, -6, -26, 6, -26, 10, -22, 6, -18, 8, -16, 8, 2, 7, 3, -7, 3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_74eqx"]
+_data = {
+"RESET": SubResource("Animation_ao3fo"),
+"idle": SubResource("Animation_t4irr")
+}
+
+[node name="VampireBoss" instance=ExtResource("1_h51bj")]
+script = ExtResource("2_pc0px")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_kfcei")
+offset = Vector2(0, -12)
+hframes = 8
+
+[node name="AnimationPlayer" parent="." index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_74eqx")
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox" index="0"]
+polygon = PackedVector2Array(-8, 2, -8, -16, -6, -18, -10, -22, -6, -26, 6, -26, 10, -22, 6, -18, 8, -16, 8, 2, 7, 3, -7, 3)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox" index="0"]
+polygon = PackedVector2Array(-8, 2, -8, -16, -6, -18, -10, -22, -6, -26, 6, -26, 10, -22, 6, -18, 8, -16, 8, 2, 7, 3, -7, 3)
