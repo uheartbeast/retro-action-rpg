@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://cxjkrv6ghfcib"]
+[gd_scene load_steps=8 format=4 uid="uid://cxjkrv6ghfcib"]
 
 [ext_resource type="PackedScene" uid="uid://c18muratispac" path="res://levels/level.tscn" id="1_ry3yj"]
 [ext_resource type="Script" path="res://levels/boss_1_level.gd" id="2_55xh5"]
 [ext_resource type="PackedScene" uid="uid://bm87xo8bekamj" path="res://world/forest_tiles_layer.tscn" id="2_sir7u"]
 [ext_resource type="Script" path="res://world/door.gd" id="3_yyf0f"]
 [ext_resource type="Resource" uid="uid://ypceaaufc68k" path="res://level_connections/level_3_to_boss_1_level.tres" id="4_c3x0n"]
+[ext_resource type="PackedScene" uid="uid://idp4s8vywvcy" path="res://enemies/vampire_boss.tscn" id="6_yey3u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dbnqq"]
 size = Vector2(48, 16)
@@ -33,3 +34,16 @@ shape = SubResource("RectangleShape2D_dbnqq")
 
 [node name="CameraTarget" type="RemoteTransform2D" parent="." index="3"]
 position = Vector2(168, 92)
+
+[node name="Marker2D" type="Marker2D" parent="." index="4"]
+position = Vector2(80, 56)
+
+[node name="Marker2D2" type="Marker2D" parent="." index="5"]
+position = Vector2(168, 88)
+
+[node name="Marker2D3" type="Marker2D" parent="." index="6"]
+position = Vector2(256, 56)
+
+[node name="VampireBoss" parent="." index="7" node_paths=PackedStringArray("target_markers") instance=ExtResource("6_yey3u")]
+position = Vector2(168, 64)
+target_markers = [NodePath("../Marker2D"), NodePath("../Marker2D2"), NodePath("../Marker2D3")]

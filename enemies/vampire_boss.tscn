@@ -176,8 +176,9 @@ _data = {
 "open_cloak": SubResource("Animation_samnv")
 }
 
-[node name="VampireBoss" instance=ExtResource("1_h51bj")]
+[node name="VampireBoss" node_paths=PackedStringArray("target_markers") instance=ExtResource("1_h51bj")]
 script = ExtResource("2_pc0px")
+target_markers = []
 movement_stats = ExtResource("3_s7xmi")
 stats = ExtResource("4_5abma")
 
