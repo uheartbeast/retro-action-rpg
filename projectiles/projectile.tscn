@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dj7v576wdd5iu"]
 
-[ext_resource type="Script" path="res://projectile.gd" id="1_7xao5"]
+[ext_resource type="Script" path="res://projectiles/projectile.gd" id="1_7xao5"]
 [ext_resource type="Script" path="res://damage_boxes/hitbox.gd" id="2_02yey"]
 
 [node name="Projectile" type="Node2D"]
