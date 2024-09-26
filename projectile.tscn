@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dj7v576wdd5iu"]
+
+[ext_resource type="Script" path="res://projectile.gd" id="1_7xao5"]
+[ext_resource type="Script" path="res://damage_boxes/hitbox.gd" id="2_02yey"]
+
+[node name="Projectile" type="Node2D"]
+z_index = 50
+script = ExtResource("1_7xao5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("2_02yey")
