@@ -5,6 +5,8 @@ const EXPLOSION_EFFECT_SCENE: = preload("res://effects/explosion_effect.tscn")
 
 @export var target_markers: Array[Marker2D]
 @onready var fireball_marker_2d: Marker2D = $Sprite2D/FireballMarker2D
+
+@onready var stasher: = Stasher.new().set_target(self)
 @onready var pause_state: = EnemyPauseState.new().set_actor(self)
 @onready var move_to_random_marker_state: = (
 	EnemyMoveToRandomMarkerState.new()
@@ -26,6 +28,7 @@ const EXPLOSION_EFFECT_SCENE: = preload("res://effects/explosion_effect.tscn")
 @onready var fsm: FSM = FSM.new().set_state(pause_state)
 
 func _ready() -> void:
+	if stasher.retrieve_property("freed"): queue_free()
 	pause_state.finished.connect(fsm.change_state.bind(transform_to_bat_state))
 	transform_to_bat_state.finished.connect(fsm.change_state.bind(move_to_random_marker_state))
 	move_to_random_marker_state.finished.connect(fsm.change_state.bind(transform_to_vampire_state))
@@ -39,6 +42,7 @@ func _ready() -> void:
 		stats.health -= damage
 		if stats.is_health_gone():
 			Utils.instantiate_scene_on_level(EXPLOSION_EFFECT_SCENE, global_position)
+			stasher.stash_property("freed", true)
 			queue_free()
 	)
 

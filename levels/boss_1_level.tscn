@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://cxjkrv6ghfcib"]
+[gd_scene load_steps=10 format=4 uid="uid://cxjkrv6ghfcib"]
 
 [ext_resource type="PackedScene" uid="uid://c18muratispac" path="res://levels/level.tscn" id="1_ry3yj"]
 [ext_resource type="Script" path="res://levels/boss_1_level.gd" id="2_55xh5"]
@@ -6,8 +6,12 @@
 [ext_resource type="Script" path="res://world/door.gd" id="3_yyf0f"]
 [ext_resource type="Resource" uid="uid://ypceaaufc68k" path="res://level_connections/level_3_to_boss_1_level.tres" id="4_c3x0n"]
 [ext_resource type="PackedScene" uid="uid://idp4s8vywvcy" path="res://enemies/vampire_boss.tscn" id="6_yey3u"]
+[ext_resource type="PackedScene" uid="uid://bgg3hgts707j3" path="res://world/boss_barrier.tscn" id="7_4vg3k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dbnqq"]
+size = Vector2(48, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ae2k"]
 size = Vector2(48, 16)
 
 [node name="Boss1Level" instance=ExtResource("1_ry3yj")]
@@ -47,3 +51,15 @@ position = Vector2(256, 56)
 [node name="VampireBoss" parent="." index="7" node_paths=PackedStringArray("target_markers") instance=ExtResource("6_yey3u")]
 position = Vector2(168, 64)
 target_markers = [NodePath("../Marker2D"), NodePath("../Marker2D2"), NodePath("../Marker2D3")]
+
+[node name="BossBarrier" parent="." index="8" instance=ExtResource("7_4vg3k")]
+visible = false
+position = Vector2(144, 160)
+
+[node name="Trigger" type="Area2D" parent="." index="9"]
+position = Vector2(168, 144)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger" index="0"]
+shape = SubResource("RectangleShape2D_2ae2k")
