@@ -103,6 +103,7 @@ func take_hit(other_hitbox: Hitbox) -> void:
 	stats.health -= other_hitbox.damage
 	Events.request_camera_screenshake.emit(4, 0.3)
 	Events.hero_hurt.emit()
+	Sound.play(Sound.hurt, 1.0, -5.0)
 	await flasher.flash(0.2)
 	await blinker.blink()
 	hurtbox.is_invincible = false

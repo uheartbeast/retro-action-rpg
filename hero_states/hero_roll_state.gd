@@ -7,6 +7,7 @@ func enter() -> void:
 	var hero: = actor as Hero
 	hero.hurtbox.is_invincible = true
 	hero.play_animation(item.animation)
+	Sound.play(Sound.evade, randf_range(0.8, 1.0))
 	await hero.animation_player.animation_finished
 	finished.emit()
 

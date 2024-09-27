@@ -20,6 +20,9 @@ const ENEMY_COLLISION_LAYER_NUMBER: = 3
 func _ready() -> void:
 	motion_mode = MOTION_MODE_FLOATING
 	assert(movement_stats is MovementStats, "ERROR: No movement stats set on enemy: " + str(name))
+	hurtbox.hurt.connect(func(other_hitbox: Hitbox) -> void:
+		Sound.play(Sound.hit, randf_range(0.8, 1.3))
+	)
 
 func set_enemy_collision(value: bool) -> void:
 	set_collision_layer_value(ENEMY_COLLISION_LAYER_NUMBER, value)

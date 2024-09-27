@@ -6,6 +6,17 @@ extends Node
 @export var hurt: AudioStream
 @export var drop: AudioStream
 
+@export_group("World Sounds")
+@export var room_transition: AudioStream
+@export var hit: AudioStream
+@export var explosion: AudioStream
+
+@export_group("UI Sounds")
+@export var menu_move: AudioStream
+@export var menu_select: AudioStream
+@export var pause: AudioStream
+@export var unpause: AudioStream
+
 @onready var audio_stream_players: = get_children()
 
 func play(audio_stream: AudioStream, pitch_scale: = 1.0, volume_db: = 0.0) -> void:

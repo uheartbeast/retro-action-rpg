@@ -12,6 +12,8 @@ var is_paused: = false :
 		else: unpaused.emit()
 
 func _ready() -> void:
+	paused.connect(Sound.play.bind(Sound.pause, 1.0, -10.0))
+	unpaused.connect(Sound.play.bind(Sound.unpause, 1.0, -10.0))
 	process_mode = PROCESS_MODE_ALWAYS
 
 func _input(event: InputEvent) -> void:
