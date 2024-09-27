@@ -11,3 +11,5 @@ script = ExtResource("1_7xao5")
 
 [node name="Hitbox" type="Area2D" parent="."]
 script = ExtResource("2_02yey")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

@@ -32,6 +32,7 @@ func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	set_collision_mask_value(PLAYER_COLLISION_LAYER_NAME, true)
 	set_collision_mask_value(WORLD_COLLISION_LAYER_NAME, false)
+	set_collision_layer_value(WORLD_COLLISION_LAYER_NAME, false)
 	add_to_group("doors")
 	body_entered.connect(func(body: Node2D):
 		if body is not Hero: return
