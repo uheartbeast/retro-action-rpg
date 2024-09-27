@@ -37,6 +37,7 @@ func _ready() -> void:
 	body_entered.connect(func(body: Node2D):
 		if body is not Hero: return
 		Events.door_entered.emit(self)
+		Sound.play(Sound.room_transition)
 	)
 
 func get_exit_point() -> Vector2:

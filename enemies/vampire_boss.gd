@@ -43,6 +43,7 @@ func _ready() -> void:
 		if stats.is_health_gone():
 			Utils.instantiate_scene_on_level(EXPLOSION_EFFECT_SCENE, global_position)
 			stasher.stash_property("freed", true)
+			Sound.play(Sound.explosion)
 			queue_free()
 	)
 

@@ -28,3 +28,4 @@ func exit() -> void:
 	if enemy.stats.is_health_gone():
 		enemy.queue_free()
 		Utils.instantiate_scene_on_level(EXPLOSION_EFFECT_SCENE, enemy.global_position)
+		Sound.play(Sound.explosion)

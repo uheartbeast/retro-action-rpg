@@ -14,7 +14,11 @@ signal selected(inventory_slot_ui, event)
 
 func _ready() -> void:
 	update_item()
-	focus_entered.connect(show_item_description)
+	focus_entered.connect(func():
+		show_item_description()
+		Sound.play(Sound.menu_move, randf_range(0.6, 1.0), -10.0)
+	)
+	selected.connect(Sound.play.bind(Sound.menu_select).unbind(2))
 
 func _gui_input(event: InputEvent) -> void:
 	if (event.is_action_pressed("roll")

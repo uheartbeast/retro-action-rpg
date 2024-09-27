@@ -6,6 +6,45 @@
 [ext_resource type="Resource" uid="uid://d160p38t6hqrb" path="res://enemies/vampire_boss_movement_states.tres" id="3_s7xmi"]
 [ext_resource type="Resource" uid="uid://bp0wwj04mvmn5" path="res://enemies/vampire_boss_stats.tres" id="4_5abma"]
 
+[sub_resource type="Animation" id="Animation_ao3fo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hurtbox/CollisionPolygon2D:polygon")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(-8, 2, -8, -16, -6, -18, -10, -22, -6, -26, 6, -26, 10, -22, 6, -18, 8, -16, 8, 2, 7, 3, -7, 3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox/CollisionPolygon2D:polygon")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(-8, 2, -8, -16, -6, -18, -10, -22, -6, -26, 6, -26, 10, -22, 6, -18, 8, -16, 8, 2, 7, 3, -7, 3)]
+}
+
 [sub_resource type="Animation" id="Animation_t4irr"]
 resource_name = "idle"
 length = 0.1
@@ -44,45 +83,6 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedVector2Array(-8, 2, -8, -16, -6, -18, -10, -22, -6, -26, 6, -26, 10, -22, 6, -18, 8, -16, 8, 2, 7, 3, -7, 3)]
-}
-
-[sub_resource type="Animation" id="Animation_ao3fo"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Hurtbox/CollisionPolygon2D:polygon")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [PackedVector2Array(-8, 2, -8, -16, -6, -18, -10, -22, -6, -26, 6, -26, 10, -22, 6, -18, 8, -16, 8, 2, 7, 3, -7, 3)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Hitbox/CollisionPolygon2D:polygon")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
 "values": [PackedVector2Array(-8, 2, -8, -16, -6, -18, -10, -22, -6, -26, 6, -26, 10, -22, 6, -18, 8, -16, 8, 2, 7, 3, -7, 3)]
 }
 
