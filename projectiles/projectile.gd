@@ -1,6 +1,8 @@
 class_name Projectile
 extends Node2D
 
+@export var impact_effect_scene: PackedScene
+
 var direction: = Vector2.ZERO : set = set_direction
 var speed: = 100.0 : set = set_speed
 
@@ -27,3 +29,6 @@ func _physics_process(delta: float) -> void:
 
 func impact() -> void:
 	queue_free()
+	var impact_effect: = Utils.instantiate_scene_on_level(impact_effect_scene, global_position) as Node2D
+	impact_effect.rotation = rotation
+	

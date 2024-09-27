@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dj7v576wdd5iu"]
+[gd_scene load_steps=4 format=3 uid="uid://dj7v576wdd5iu"]
 
 [ext_resource type="Script" path="res://projectiles/projectile.gd" id="1_7xao5"]
 [ext_resource type="Script" path="res://damage_boxes/hitbox.gd" id="2_02yey"]
+[ext_resource type="PackedScene" uid="uid://cjfnq31wn5nfi" path="res://particles/impact_particle_burst_effect.tscn" id="2_ajbf8"]
 
 [node name="Projectile" type="Node2D"]
 z_index = 50
 script = ExtResource("1_7xao5")
+impact_effect_scene = ExtResource("2_ajbf8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
