@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://burvhv42pe1q6"]
+[gd_scene load_steps=12 format=4 uid="uid://burvhv42pe1q6"]
 
 [ext_resource type="PackedScene" uid="uid://c18muratispac" path="res://levels/level.tscn" id="1_7yyhx"]
 [ext_resource type="Script" path="res://camera/camera_limits.gd" id="3_mlspe"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bjc2m2qhuru6b" path="res://world/sword_in_the_stone.tscn" id="5_uad8x"]
 [ext_resource type="Script" path="res://world/door.gd" id="6_2prqv"]
 [ext_resource type="Resource" uid="uid://dvu4qg3krmc30" path="res://level_connections/level_1_to_level_2_connection.tres" id="7_o2cav"]
+[ext_resource type="Script" path="res://muisc_and_sounds/level_music_playlist.gd" id="7_rypue"]
+[ext_resource type="AudioStream" uid="uid://du132122awnv" path="res://muisc_and_sounds/music_1.mp3" id="8_7p4ky"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_gjyxd"]
 vertices = PackedVector2Array(184, 120, 307, 98, 334, 98, 216, 120, 248, 88, 307, 73, 216, 88, 248, 152, 296, 184, 8, 184, 216, 152, 360, 120, 296, 120, 216, 56, 184, 88, 200, 8, 360, -8, 334, 73, 248, 120, 312, -8, 312, 8, 248, 56, 8, -8, 200, -8, 152, 88, 152, 120)
@@ -17,6 +19,11 @@ agent_radius = 8.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4sbmk"]
 size = Vector2(16, 32)
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_2lxy0"]
+shuffle = true
+stream_count = 1
+stream_0 = ExtResource("8_7p4ky")
 
 [node name="Level1" instance=ExtResource("1_7yyhx")]
 
@@ -56,3 +63,7 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door" index="0"]
 shape = SubResource("RectangleShape2D_4sbmk")
+
+[node name="LevelMusicPlaylist" type="Node" parent="." index="6"]
+script = ExtResource("7_rypue")
+song_list = SubResource("AudioStreamPlaylist_2lxy0")

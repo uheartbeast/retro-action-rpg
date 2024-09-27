@@ -21,7 +21,7 @@ func is_playing_playlist(song_playlist: AudioStreamPlaylist) -> bool:
 
 func play(song: AudioStream) -> void:
 	audio_stream_player.volume_db = _get_bus_volume_db()
-	audio_stream_player.strem = song
+	audio_stream_player.stream = song
 	audio_stream_player.play()
 
 func fade(duration: float = 0.75) -> void:
