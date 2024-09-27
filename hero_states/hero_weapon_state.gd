@@ -9,6 +9,7 @@ func enter() -> void:
 	var hero: = actor as Hero
 	hero.hitbox.knockback = hero.facing_direction * item.knockback
 	hero.hitbox.damage = item.damage
+	Sound.play(Sound.swipe, randf_range(0.8, 1.0), -5.0)
 	hero.play_animation(item.animation)
 	await hero.animation_player.animation_finished
 	finished.emit()
