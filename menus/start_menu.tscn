@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bt366pxb0lx1w"]
+[gd_scene load_steps=4 format=3 uid="uid://bt366pxb0lx1w"]
 
+[ext_resource type="Script" path="res://menus/start_menu.gd" id="1_43hru"]
 [ext_resource type="Texture2D" uid="uid://dpjne1myl1e3c" path="res://menus/logo.png" id="1_nuts4"]
 [ext_resource type="PackedScene" uid="uid://dpmm2jpe7hqft" path="res://ui/menu_button.tscn" id="2_wehps"]
 
@@ -10,6 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0784314, 0.0941176, 0.180392, 1)
+script = ExtResource("1_43hru")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1

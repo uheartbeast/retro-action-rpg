@@ -10,10 +10,6 @@ func _ready() -> void:
 	RenderingServer.set_default_clear_color(Color("#14182e"))
 	Events.door_entered.connect(change_levels, CONNECT_DEFERRED)
 
-func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("right_mouse"):
-		SaveManager.load_game.call_deferred()
-
 func set_level(level_scene_path: String) -> void:
 	current_level.queue_free()
 	var new_level: = load(level_scene_path).instantiate() as Level

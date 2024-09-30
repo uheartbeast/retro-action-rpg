@@ -29,11 +29,10 @@ func save_game() -> void:
 	save_file.close()
 
 func load_game() -> void:
-	var save_file = FileAccess.open(save_path, FileAccess.READ)
-	if save_file is FileAccess:
-		save_data = JSON.parse_string(save_file.get_line())
-	else:
-		print("NO SAVE FILE!!!")
+	var save_file = get_save_file()
+	if not save_file is FileAccess: return
+	
+	save_data = JSON.parse_string(save_file.get_line())
 	
 	ReferenceStash.inventory = Inventory.new().deserialize(save_data.inventory)
 	ReferenceStash.hero_stats = Stats.new().deserialize(save_data.hero_stats)
@@ -55,3 +54,14 @@ func load_game() -> void:
 	
 	var actions_ui = MainInstances.actions_ui as ActionsUI
 	actions_ui.update_from_serialized_data(save_data.actions_ui)
+
+func get_save_file() -> FileAccess:
+	var save_file = FileAccess.open(save_path, FileAccess.READ)
+	if save_file is FileAccess:
+		return save_file
+	else:
+		print("NO SAVE FILE!!!")
+		return null
+
+func has_save_file() -> bool:
+	return (get_save_file() is FileAccess)
