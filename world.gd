@@ -9,6 +9,10 @@ func _ready() -> void:
 	y_sort_enabled = true
 	RenderingServer.set_default_clear_color(Color("#14182e"))
 	Events.door_entered.connect(change_levels, CONNECT_DEFERRED)
+	hero.stats.no_health.connect(func():
+		await get_tree().create_timer(3.0).timeout
+		get_tree().change_scene_to_file("res://menus/game_over_menu.tscn")
+	)
 
 func set_level(level_scene_path: String) -> void:
 	current_level.queue_free()

@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8vjl0kckoo56"]
+[gd_scene load_steps=5 format=3 uid="uid://b8vjl0kckoo56"]
 
+[ext_resource type="Script" path="res://menus/game_over_menu.gd" id="1_1qwmb"]
 [ext_resource type="LabelSettings" uid="uid://bppl6q5h86o56" path="res://fonts/title_label_settings.tres" id="1_u3hs8"]
 [ext_resource type="LabelSettings" uid="uid://djw12prjnf8bd" path="res://fonts/paragraph_label_settings.tres" id="2_8h13u"]
 [ext_resource type="PackedScene" uid="uid://dpmm2jpe7hqft" path="res://ui/menu_button.tscn" id="3_c0dts"]
@@ -11,6 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0784314, 0.0941176, 0.180392, 1)
+script = ExtResource("1_1qwmb")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
