@@ -30,7 +30,6 @@ var direction_map = {
 func _ready() -> void:
 	queue_redraw()
 	if Engine.is_editor_hint(): return
-	set_collision_mask_value(PLAYER_COLLISION_LAYER_NAME, true)
 	set_collision_mask_value(WORLD_COLLISION_LAYER_NAME, false)
 	set_collision_layer_value(WORLD_COLLISION_LAYER_NAME, false)
 	add_to_group("doors")
@@ -39,6 +38,14 @@ func _ready() -> void:
 		Events.door_entered.emit(self)
 		Sound.play(Sound.room_transition)
 	)
+	# Make sure to wait a single physics frame before activating the door
+	# This prevents the player from immediately entering a door in the next level
+	# before they are correctly positioned
+	await get_tree().physics_frame
+	activate()
+
+func activate() -> void:
+	set_collision_mask_value(PLAYER_COLLISION_LAYER_NAME, true)
 
 func get_exit_point() -> Vector2:
 	return global_position + get_exit_offset()

@@ -6,6 +6,7 @@ extends Node2D
 @onready var hero: Hero = $Hero
 
 func _ready() -> void:
+	#activate_doors()
 	y_sort_enabled = true
 	RenderingServer.set_default_clear_color(Color("#14182e"))
 	Events.door_entered.connect(change_levels, CONNECT_DEFERRED)
@@ -13,6 +14,9 @@ func _ready() -> void:
 		await get_tree().create_timer(3.0).timeout
 		get_tree().change_scene_to_file("res://menus/game_over_menu.tscn")
 	)
+
+func activate_doors() -> void:
+	get_tree().call_group("doors", "activate")
 
 func set_level(level_scene_path: String) -> void:
 	current_level.queue_free()
@@ -22,6 +26,7 @@ func set_level(level_scene_path: String) -> void:
 
 func change_levels(entered_door: Door) -> void:
 	if hero is not Hero: return
+	hero = hero as Hero
 	set_level(entered_door.next_level_path)
 	var doors: = get_tree().get_nodes_in_group("doors")
 	doors.erase(entered_door)
@@ -30,3 +35,5 @@ func change_levels(entered_door: Door) -> void:
 		var offset = entered_door.get_offset(hero)
 		hero.global_position = door.get_exit_point() - offset
 		Events.request_camera_target.emit(hero.remote_transform_2d)
+	#await get_tree().physics_frame
+	#activate_doors()
